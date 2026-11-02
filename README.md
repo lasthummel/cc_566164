@@ -3,7 +3,8 @@
 ## 02.11
 
 - Entwicklungsumgebungen, Werkzeuge und Versionsverwaltung
-
+- notizen/ihk-operatoren.md
+- tag01/
 
 
 ## Allgemein
