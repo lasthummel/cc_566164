@@ -41,3 +41,11 @@ Grenzen sind beispielsweise subjektive Bewertungen, Abhängigkeit von der Kriter
 4. Nennen Sie ein mögliches KO-Kriterium und erklären Sie, wann es vor der Nutzwertberechnung anzuwenden wäre.
 
 Mögliches KO-Kriterium: Unterstützung der verbindlich eingesetzten Java-Version. Wird diese nicht unterstützt, scheidet die Alternative vor der Nutzwertberechnung aus, sofern diese Unterstützung tatsächlich zwingend festgelegt wurde.
+
+### 2.3 Entscheidung kritisch beurteilen
+
+Ein Projektleiter erklärt: „IDE A hat die höchste Bewertung bei Java und beim Debugging. Deshalb müssen wir IDE A wählen. Die anderen Kriterien sind unwichtig.“
+
+Beurteilen Sie diese Aussage anhand der Entscheidungsmatrix. Gehen Sie auf Gewichtungen und die Grenzen einer rein rechnerischen Entscheidung ein.
+
+Die Aussage ist nicht tragfähig. Sie betrachtet nur zwei Einzelbewertungen und ignoriert die Gewichtungen und übrigen Kriterien. IDE B erzielt in der Gesamtberechnung 4,10, IDE A 3,95. Die Nutzwertanalyse bleibt eine Entscheidungshilfe: Kriterien, Bewertungen und zwingende Anforderungen müssen im Projektkontext geprüft werden.

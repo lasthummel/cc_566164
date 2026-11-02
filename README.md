@@ -4,8 +4,11 @@
 
 - Entwicklungsumgebungen, Werkzeuge und Versionsverwaltung
 - notizen/ihk-operatoren.md
-- tag01/
+- Dateien im Ordner tag01/
 
+- Aufgaben nach 13:30 Uhr: 
+    - a03.md
+    - a04.md
 
 ## Allgemein
 
