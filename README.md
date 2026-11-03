@@ -4,6 +4,12 @@
 - Bibliotheken, Frameworks, Architektur und Schnittstellen
 - Dateien im Ordner tag02/
 
+- Aufgaben:
+    - tag02/a04.md
+    - tag02/a05-fallstudie.md
+
+- Aufgabe zu Design Patterns (optional):    
+    - tag02/a06-design patterns.md
 
 ## 02.11
 
