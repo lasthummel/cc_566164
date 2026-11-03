@@ -1,5 +1,10 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 03.11
+- Bibliotheken, Frameworks, Architektur und Schnittstellen
+
+
+
 ## 02.11
 
 - Entwicklungsumgebungen, Werkzeuge und Versionsverwaltung
