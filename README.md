@@ -2,7 +2,7 @@
 
 ## 03.11
 - Bibliotheken, Frameworks, Architektur und Schnittstellen
-
+- Dateien im Ordner tag02/
 
 
 ## 02.11
@@ -10,6 +10,7 @@
 - Entwicklungsumgebungen, Werkzeuge und Versionsverwaltung
 - notizen/ihk-operatoren.md
 - Dateien im Ordner tag01/
+- Dateien im Ordner demo-tag01/
 
 - Aufgaben nach 13:30 Uhr: 
     - tag01/a03.md
