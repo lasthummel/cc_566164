@@ -2,7 +2,7 @@
 
 ## 04.11
 
-- funkt. und nichtfunkt. Anforderungen, Randbedingungen
+- Anforderungsanalyse (funkt. und nichtfunkt. Anforderungen, Randbedingungen)
 - Dateien im Ordner tag03/
 
 - Aufgaben:
