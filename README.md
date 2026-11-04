@@ -1,5 +1,10 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 04.11
+    - designpatterns/design patterns observer.md (und Lösung)
+
+- Dateien im Ordner tag03/
+
 ## 03.11
 - Bibliotheken, Frameworks, Architektur und Schnittstellen
 - Dateien im Ordner tag02/
@@ -9,7 +14,7 @@
     - tag02/a05-fallstudie.md
 
 - Aufgabe zu Design Patterns (optional):    
-    - tag02/a06-design patterns.md
+    - designpatterns/design patterns observer.md
 
 ## 02.11
 

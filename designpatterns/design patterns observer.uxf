@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.1"><zoom_level>14</zoom_level><element><id>UMLClass</id><coordinates><x>28</x><y>14</y><w>308</w><h>154</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Subjekt
+--
++ registrieren(o : Beobachter) : void
++ abmelden(o : Beobachter) : void
++ benachrichtigen() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>0</y><w>336</w><h>126</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Beobachter
+--
++ update(d : Dateiverwaltung) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>28</x><y>308</y><w>308</w><h>126</h></coordinates><panel_attributes>Dateiverwaltung
+--
+- beobachterList : List
+--
++ entfernen(file: Path) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>476</x><y>252</y><w>350</w><h>98</h></coordinates><panel_attributes>Speicherübersicht
+--
++ update(d : Dateiverwaltung) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>406</y><w>378</w><h>98</h></coordinates><panel_attributes>Dateiliste
+--
++ update(d : Dateiverwaltung) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>182</x><y>154</y><w>126</w><h>182</h></coordinates><panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realisiert&gt;&gt;</panel_attributes><additional_attributes>16;10;16;110</additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>112</y><w>56</w><h>168</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>16;10;20;98</additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>112</y><w>196</w><h>322</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;80;108;80;120;208</additional_attributes></element><element><id>Relation</id><coordinates><x>322</x><y>70</y><w>280</w><h>70</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+r2=beobachter</panel_attributes><additional_attributes>10;24;172;24</additional_attributes></element><element><id>Relation</id><coordinates><x>322</x><y>308</y><w>182</w><h>84</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>322</x><y>378</y><w>406</w><h>84</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;270;40</additional_attributes></element></diagram>
