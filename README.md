@@ -1,9 +1,15 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
 ## 04.11
-    - designpatterns/design patterns observer.md (und Lösung)
 
+- funkt. und nichtfunkt. Anforderungen, Randbedingungen
 - Dateien im Ordner tag03/
+
+- Aufgaben:
+    - tag03/a02.md
+    - tag03/a03.md (optional, eventuell als Wiederholung an einem anderen Tag)
+
+    - designpatterns/design patterns observer.md (auch die Lösung)
 
 ## 03.11
 - Bibliotheken, Frameworks, Architektur und Schnittstellen
