@@ -1,0 +1,19 @@
+<diagram program="umletino" version="15.1"><zoom_level>12</zoom_level><element><id>UMLClass</id><coordinates><x>48</x><y>108</y><w>264</w><h>132</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Subjekt
+--
++ registrieren(o : Beobachter) : void
++ abmelden(o : Beobachter) : void
++ benachrichtigen() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>504</x><y>96</y><w>288</w><h>108</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Beobachter
+--
++ update(d : Dateiverwaltung) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>48</x><y>360</y><w>264</w><h>108</h></coordinates><panel_attributes>Dateiverwaltung
+--
++ entfernen(file: Path) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>384</y><w>300</w><h>84</h></coordinates><panel_attributes>Speicherübersicht
+--
++ update(d : Dateiverwaltung) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>384</y><w>324</w><h>84</h></coordinates><panel_attributes>Dateiliste
+--
++ update(d : Dateiverwaltung) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>228</y><w>120</w><h>156</h></coordinates><panel_attributes>lt=&lt;&lt;.
+&lt;&lt;realisiert&gt;&gt;</panel_attributes><additional_attributes>16;10;16;110</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>192</y><w>48</w><h>216</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>16;10;10;158</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>192</y><w>348</w><h>216</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;80;268;80;270;158</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>156</y><w>240</w><h>60</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+r2=beobachter</panel_attributes><additional_attributes>10;24;172;24</additional_attributes></element></diagram>
