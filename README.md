@@ -4,6 +4,8 @@
 - Vorgehensmodelle und Modellierung von Systemen
 - Dateien im Ordner tag04/
 
+- Aufgaben nach 13:30 Uhr:
+    - tag04/a05.md
 
 ## 04.11
 

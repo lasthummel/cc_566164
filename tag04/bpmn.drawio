@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e">
+    <diagram id="IxDP3drPkud7bzQ2nNdA" name="Page-1">
+        <mxGraphModel dx="1039" dy="616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-1" parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;whiteSpace=wrap;" value="Pool" vertex="1">
+                    <mxGeometry height="360" width="640" x="50" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-2" parent="jKVcEluXcA_DaeoUPkiG-1" style="swimlane;html=1;startSize=20;horizontal=0;" value="Lane 1" vertex="1">
+                    <mxGeometry height="120" width="620" x="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-5" parent="jKVcEluXcA_DaeoUPkiG-2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Task" vertex="1">
+                    <mxGeometry height="80" width="120" x="150" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-8" parent="jKVcEluXcA_DaeoUPkiG-2" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="50" width="50" x="320" y="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-9" edge="1" parent="jKVcEluXcA_DaeoUPkiG-2" source="jKVcEluXcA_DaeoUPkiG-6" style="edgeStyle=elbowEdgeStyle;fontSize=12;html=1;endArrow=blockThin;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="jKVcEluXcA_DaeoUPkiG-5" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <mxPoint x="90" y="60" as="sourcePoint"/>
+                        <mxPoint x="250" y="60" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-10" edge="1" parent="jKVcEluXcA_DaeoUPkiG-2" source="jKVcEluXcA_DaeoUPkiG-5" style="edgeStyle=elbowEdgeStyle;fontSize=12;html=1;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="jKVcEluXcA_DaeoUPkiG-8" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <mxPoint x="220" y="200" as="sourcePoint"/>
+                        <mxPoint x="380" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-12" edge="1" parent="jKVcEluXcA_DaeoUPkiG-2" style="edgeStyle=elbowEdgeStyle;fontSize=12;html=1;endArrow=blockThin;endFill=1;" target="jKVcEluXcA_DaeoUPkiG-6" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <mxPoint x="160" y="80" as="sourcePoint"/>
+                        <mxPoint x="220" y="80" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-6" parent="jKVcEluXcA_DaeoUPkiG-2" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="50" width="50" x="70" y="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-3" parent="jKVcEluXcA_DaeoUPkiG-1" style="swimlane;html=1;startSize=20;horizontal=0;" value="Lane 2" vertex="1">
+                    <mxGeometry height="120" width="620" x="20" y="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-7" parent="jKVcEluXcA_DaeoUPkiG-3" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="50" width="50" x="500" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-4" parent="jKVcEluXcA_DaeoUPkiG-1" style="swimlane;html=1;startSize=20;horizontal=0;" value="Lane 3" vertex="1">
+                    <mxGeometry height="120" width="620" x="20" y="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-11" parent="1" style="swimlane;startSize=20;horizontal=0;html=1;whiteSpace=wrap;" value="Lane" vertex="1">
+                    <mxGeometry height="120" width="620" x="60" y="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-13" parent="jKVcEluXcA_DaeoUPkiG-11" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="50" width="50" x="40" y="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="jKVcEluXcA_DaeoUPkiG-14" edge="1" parent="1" source="jKVcEluXcA_DaeoUPkiG-13" style="dashed=1;dashPattern=8 4;endArrow=blockThin;endFill=1;startArrow=oval;startFill=0;endSize=6;startSize=4;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <mxPoint x="140" y="420" as="sourcePoint"/>
+                        <mxPoint x="160" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
