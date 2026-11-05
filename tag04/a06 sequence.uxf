@@ -1,0 +1,12 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLSequenceAllInOne</id><coordinates><x>140</x><y>330</y><w>900</w><h>420</h></coordinates><panel_attributes>title=Support-Ticket 42 schliessen
+obj=Mitarbeiterin~m
+obj=Ticketsystem~s
+obj=Ticketdatenbank~d
+obj=Benachrichtigungssystem~n
+m-&gt;&gt;&gt;s:ticketSchliessen(42)
+s-&gt;&gt;&gt;d:ticketLaden(42)
+d.&gt;s:Ticket (Status: in Bearbeitung)
+s-&gt;&gt;&gt;d:statusUndProtokollSpeichern(42, geschlossen)
+d.&gt;s:gespeichert
+s-&gt;n:ticketaenderung(42, geschlossen)
+s.&gt;m:Ticket 42 wurde geschlossen.</panel_attributes><additional_attributes></additional_attributes></element></diagram>

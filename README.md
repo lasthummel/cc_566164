@@ -6,6 +6,10 @@
 
 - Aufgaben nach 13:30 Uhr:
     - tag04/a05.md
+    - tag04/a07.md
+    - tag04/a08.md
+
+    - tag04/design pattern aufgabe.md
 
 ## 04.11
 
