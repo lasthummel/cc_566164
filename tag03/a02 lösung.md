@@ -145,12 +145,12 @@ d) Identifizieren Sie technische Festlegungen.
 
 Die eindeutigste technische Festlegung ist:
 
-Anforderung 7. "Die Anwendung wird mit Spring Boot entwickelt."
+**Anforderung 7.** "Die Anwendung wird mit Spring Boot entwickelt."
 
 Spring Boot ist eine konkrete Technologie bzw. ein Framework für die technische Umsetzung. Die Aussage beschreibt daher nicht die fachliche Anforderung, sondern eine Festlegung zur Implementierung.
 
-Auch Aussage 6 enthält einen technischen bzw. infrastrukturellen Rahmen:
 
-Anforderung 6. "Die Anwendung muss im vorhandenen Unternehmensnetz betrieben werden."
+**Anforderung 6.** "Die Anwendung muss im vorhandenen Unternehmensnetz betrieben werden."
+Auch Aussage 6 enthält einen technischen bzw. infrastrukturellen Rahmen.
 
 Diese Aussage ist jedoch eher als Randbedingung zu klassifizieren. Sie legt nicht unmittelbar eine konkrete Technologie fest, sondern schränkt die möglichen technischen Lösungen ein.
