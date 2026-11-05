@@ -1,5 +1,10 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 05.11
+- Vorgehensmodelle und Modellierung von Systemen
+- Dateien im Ordner tag04/
+
+
 ## 04.11
 
 - Anforderungsanalyse (funkt. und nichtfunkt. Anforderungen, Randbedingungen)
