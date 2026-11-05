@@ -1,0 +1,32 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>fontsize=14
+</help_text><element><id>UMLSpecialState</id><coordinates><x>721</x><y>0</y><w>20</w><h>20</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>521</x><y>100</y><w>420</w><h>140</h></coordinates><panel_attributes>offen
+--
+bearbeiten [Mitarbeiter: eigenes Ticket oder Admin] /
+  protokollieren(); ggf. benachrichtigen()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>521</x><y>410</y><w>420</w><h>140</h></coordinates><panel_attributes>in Bearbeitung
+--
+bearbeiten [Administrator] /
+  protokollieren(); ggf. benachrichtigen()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>521</x><y>720</y><w>420</w><h>160</h></coordinates><panel_attributes>geschlossen
+--
+entry / Abschlussmeldung anzeigen()
+bearbeiten [Administrator] /
+  protokollieren(); ggf. benachrichtigen()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>721</x><y>10</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>721</x><y>230</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>721</x><y>540</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>291</x><y>160</y><w>250</w><h>340</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>230;320;10;320;10;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>931</x><y>160</y><w>360</w><h>660</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;340;10;340;640;10;640</additional_attributes></element><element><id>Text</id><coordinates><x>761</x><y>20</y><w>500</w><h>70</h></coordinates><panel_attributes>Ticket erstellen [Mitarbeiter] /
+protokollieren(); ggf. benachrichtigen()
+fontsize=13</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>761</x><y>270</y><w>480</w><h>100</h></coordinates><panel_attributes>Bearbeitung beginnen
+[Administrator oder Mitarbeiter: eigenes offenes Ticket]
+/ protokollieren(); ggf. benachrichtigen()
+fontsize=13</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>761</x><y>570</y><w>480</w><h>90</h></coordinates><panel_attributes>Ticket schließen [Schließberechtigung] /
+protokollieren(); ggf. benachrichtigen()
+fontsize=13</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>101</x><y>290</y><w>190</w><h>110</h></coordinates><panel_attributes>Zurueckstellen
+[Administrator] /
+protokollieren();
+ggf. benachrichtigen()
+fontsize=13</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1021</x><y>380</y><w>220</w><h>120</h></coordinates><panel_attributes>Direkt schließen
+[Schließberechtigung] /
+protokollieren();
+ggf. benachrichtigen()
+fontsize=13</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>131</x><y>930</y><w>1270</w><h>130</h></coordinates><panel_attributes>Modellierungsannahmen:
+Schließberechtigung: in den Anforderungen nicht spezifiziert (fachlich festzulegen).
+"ggf. benachrichtigen()" informiert das externe System nur bei aktivierter Anbindung.
+protokollieren(): Akteur, Zeitpunkt, Ereignis sowie vorherigen und neuen Zustand/Wert erfassen.
+Kein Endknoten: geschlossene Tickets bleiben für Administratoren bearbeitbar.
+fontsize=13</panel_attributes><additional_attributes></additional_attributes></element></diagram>

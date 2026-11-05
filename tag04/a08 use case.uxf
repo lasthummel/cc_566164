@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>UML-Anwendungsfalldiagramm: Ticketverwaltung. Annahme: Das Schließen wird durch Administratoren ausgeführt; die Anforderungen legen die Berechtigung zum Schließen nicht ausdrücklich fest. Die optionale Benachrichtigung erweitert die verpflichtende Dokumentation einer Ticketaktion. Ticketzustände sind eine fachliche Notiz und keine Anwendungsfälle.</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>265</x>
+      <y>70</y>
+      <w>940</w>
+      <h>810</h>
+    </coordinates>
+    <panel_attributes>Ticketverwaltung</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>375</x>
+      <y>190</y>
+      <w>255</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Ticket erstellen</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>375</x>
+      <y>330</y>
+      <w>255</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Eigenes offenes
+Ticket bearbeiten</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>375</x>
+      <y>485</y>
+      <w>255</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Alle Tickets
+bearbeiten</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>375</x>
+      <y>655</y>
+      <w>255</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Ticket schließen</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>850</x>
+      <y>200</y>
+      <w>260</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>Externes System
+benachrichtigen</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>850</x>
+      <y>455</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Bearbeitungsschritte
+dokumentieren</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>850</x>
+      <y>680</y>
+      <w>260</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>Abschlussmeldung
+anzeigen</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>95</x>
+      <y>190</y>
+      <w>80</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Mitarbeiter</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>95</x>
+      <y>585</y>
+      <w>95</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>Administrator</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>1300</x>
+      <y>192</y>
+      <w>110</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>Externes
+Benachrichtigungs-
+system</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>165</x>
+      <y>215</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;30.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>165</x>
+      <y>250</y>
+      <w>220</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;125.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>520</y>
+      <w>210</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;108.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>650</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1100</x>
+      <y>230</y>
+      <w>210</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>238</y>
+      <w>240</w>
+      <h>247</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;237.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>363</y>
+      <w>240</w>
+      <h>134</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;124.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>498</y>
+      <w>240</w>
+      <h>38</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;28.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>512</y>
+      <w>240</w>
+      <h>178</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;168.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>705</y>
+      <w>240</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;15.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>266</y>
+      <w>20</w>
+      <h>199</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extend&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;189.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>780</x>
+      <y>102</y>
+      <w>365</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Ticketzustände:
+offen | in Bearbeitung | geschlossen</panel_attributes>
+    <additional_attributes />
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>735</x>
+      <y>784</y>
+      <w>425</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Schließberechtigung nicht spezifiziert.
+Hier: Administrator schließt Tickets.
+Benachrichtigung optional bei Änderungen.</panel_attributes>
+    <additional_attributes />
+  </element>
+</diagram>

@@ -1,0 +1,46 @@
+# Aufgabe Scrum-Begriffe zuordnen
+
+Ordnen Sie jedem Scrum-Begriff aus Tabelle 1 die passende Definition aus Tabelle 2 zu.
+
+Tragen Sie dazu den Buchstaben der Definition in die Spalte „Zuordnung“ ein. Jede Definition darf genau einmal verwendet werden.
+
+## Tabelle 1: Begriffe
+
+| Nr. | Scrum-Begriff | Zuordnung (A–H) |
+|---:|---|:---:|
+| 1 | Product Backlog | |
+| 2 | Sprint | |
+| 3 | User Story | |
+| 4 | Akzeptanzkriterium | |
+| 5 | Product Owner | |
+| 6 | Scrum Master | |
+| 7 | Sprint Backlog | |
+| 8 | Daily Scrum | |
+
+## Tabelle 2: Definitionen
+
+| Buchstabe | Definition |
+|:---:|---|
+| A | Kurzes, tägliches Ereignis, bei dem die Developers ihren Fortschritt im Hinblick auf das Sprint-Ziel überprüfen und ihre Arbeit anpassen. |
+| B | Person, die für die Maximierung des Produktwerts und für das wirksame Management des Product Backlogs verantwortlich ist. |
+| C | Überprüfbare Bedingung, anhand derer festgestellt werden kann, ob eine Anforderung erfüllt ist. |
+| D | Geordnete, sich weiterentwickelnde Liste dessen, was zur Verbesserung des Produkts benötigt wird. |
+| E | Zeitlich begrenzter Arbeitszyklus von höchstens einem Monat, in dem ein nutzbares Increment entsteht. |
+| F | Verantwortlich dafür, dass Scrum verstanden und wirksam angewendet wird; unterstützt Team und Organisation dabei. |
+| G | Plan der Developers für den Sprint: umfasst das Sprint-Ziel, ausgewählte Product-Backlog-Einträge und den Plan zu ihrer Umsetzung. |
+| H | Kurze Beschreibung einer gewünschten Funktion aus Sicht einer Nutzerrolle, häufig mit dem erwarteten Nutzen. |
+
+**Lösung.**
+
+
+| Nr. | Scrum-Begriff | Richtige Definition |
+|---:|---|:---:|
+| 1 | Product Backlog | D |
+| 2 | Sprint | E |
+| 3 | User Story | H |
+| 4 | Akzeptanzkriterium | C |
+| 5 | Product Owner | B |
+| 6 | Scrum Master | F |
+| 7 | Sprint Backlog | G |
+| 8 | Daily Scrum | A |
+
