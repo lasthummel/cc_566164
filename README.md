@@ -5,6 +5,9 @@
 - Dateien im Ordner tag05/
 
 - Aufgaben nach 13:30 Uhr:
+    - tag05/a02.md
+    - tag05/a03.md
+    
     - designpatterns/strategy aufgabe.md
     - Java Projekt 'demo', Strategy-Lösung in 'src/main/java/designpatterns'
     - Java Projekt 'demo', Polymorphismus in 'src/main/java/polymorphismus'
