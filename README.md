@@ -1,5 +1,14 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 06.11
+
+
+- Aufgaben nach 13:30 Uhr:
+    - designpatterns/strategy aufgabe.md
+    - Java Projekt 'demo', Strategy-Lösung in 'src/main/java/designpatterns'
+    - Java Projekt 'demo', Polymorphismus in 'src/main/java/polymorphismus'
+
+
 ## 05.11
 - Vorgehensmodelle und Modellierung von Systemen
 - Dateien im Ordner tag04/
@@ -9,7 +18,7 @@
     - tag04/a07.md
     - tag04/a08.md
 
-    - tag04/design pattern aufgabe.md
+    - designpatterns/strategy aufgabe.md
 
 ## 04.11
 

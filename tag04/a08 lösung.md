@@ -75,3 +75,6 @@ Die Aussage ist nicht sinnvoll.
 Begründung:
 
 Unterschiedliche UML-Diagrammtypen stellen unterschiedliche Perspektiven eines Systems dar. Ein Use-Case-Diagramm zeigt beispielsweise Akteure und Systemfunktionen, während ein Zustandsdiagramm Zustände und Übergänge eines Objekts darstellt. Ein einzelnes Diagramm würde die unterschiedlichen Fragestellungen nicht angemessen abbilden.
+
+Bessere Begründung:
+Ein Softwaresystem ist viel zu komplex, um alle Aspekte in einem einzigen Diagramm abzubilden

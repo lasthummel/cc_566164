@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>45</x><y>144</y><w>261</w><h>117</h></coordinates><panel_attributes>Preisrechner
+--
+- strategie : Preisstrategie
+--
++ setStrategie(s : Preisstrategie) : void
++ berechnePreis(betrag : double) : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>144</y><w>234</w><h>90</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Preisstrategie
+--
++ berechnePreis(betrag : double) : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>351</x><y>351</y><w>252</w><h>81</h></coordinates><panel_attributes>NormalpreisStrategie
+--
++ berechnePreis(betrag : double) : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>351</y><w>252</w><h>81</h></coordinates><panel_attributes>RabattStrategie
+--
++ berechnePreis(betrag : double) : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>180</y><w>135</w><h>45</h></coordinates><panel_attributes>lt=-&gt;
+m1=1
+m2=1
+r2=strategie</panel_attributes><additional_attributes>10;24;124;24</additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>225</y><w>27</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>16;10;16;130</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>225</y><w>234</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;70;238;70;238;130</additional_attributes></element><element><id>UMLNote</id><coordinates><x>45</x><y>324</y><w>261</w><h>108</h></coordinates><panel_attributes>Strategy (Verhaltensmuster):
+- Gemeinsames Interface fuer Algorithmen
+- Konkrete Strategien sind austauschbar
+- Context delegiert an die aktuelle Strategie
+- Wechsel zur Laufzeit via setStrategie(...)
+- Keine Vererbung des Context notwendig</panel_attributes><additional_attributes></additional_attributes></element></diagram>
