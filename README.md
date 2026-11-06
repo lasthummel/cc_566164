@@ -1,13 +1,13 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
 ## 06.11
-
+- UI/UX, Ergonomie und Barrierefreiheit
+- Dateien im Ordner tag05/
 
 - Aufgaben nach 13:30 Uhr:
     - designpatterns/strategy aufgabe.md
     - Java Projekt 'demo', Strategy-Lösung in 'src/main/java/designpatterns'
     - Java Projekt 'demo', Polymorphismus in 'src/main/java/polymorphismus'
-
 
 ## 05.11
 - Vorgehensmodelle und Modellierung von Systemen
