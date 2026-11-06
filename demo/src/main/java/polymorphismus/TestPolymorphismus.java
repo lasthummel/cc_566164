@@ -11,6 +11,13 @@ class CharSupplier {
 
 class ABCSupplier extends CharSupplier {
     private char ch = 'A';
+
+    /* 
+       Überschreiben.
+
+       ABCSupplier IST CharSupplier,
+       überschreibt aber seine Methoden hasNext und next.
+     */
     boolean hasNext() { return ch < 'D'; }
     char next() { 
         char chCopy = ch;
