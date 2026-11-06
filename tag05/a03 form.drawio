@@ -1,0 +1,70 @@
+<mxfile host="65bd71144e">
+    <diagram id="ticket-detail" name="Ticketdetailansicht">
+        <mxGraphModel dx="793" dy="877" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="screen" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+                    <mxGeometry height="600" width="790" x="90" y="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="head" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=19;fontStyle=1;" value="Ticketsystem / Ticketdetails" vertex="1">
+                    <mxGeometry height="35" width="275" x="120" y="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="divider" parent="1" style="line;strokeWidth=1;" value="" vertex="1">
+                    <mxGeometry height="1" width="720" x="120" y="127" as="geometry"/>
+                </mxCell>
+                <mxCell id="ticketlabel" parent="1" style="text;html=1;align=left;verticalAlign=middle;" value="Ticketnummer" vertex="1">
+                    <mxGeometry height="30" width="140" x="130" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="ticket" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=10;" value="#T-1042 (nur lesbar)" vertex="1">
+                    <mxGeometry height="32" width="250" x="295" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="statuslabel" parent="1" style="text;html=1;align=left;verticalAlign=middle;" value="Status" vertex="1">
+                    <mxGeometry height="30" width="60" x="575" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="status" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;" value="Offen" vertex="1">
+                    <mxGeometry height="32" width="175" x="650" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="subjectlabel" parent="1" style="text;html=1;align=left;verticalAlign=middle;" value="Betreff" vertex="1">
+                    <mxGeometry height="32" width="140" x="130" y="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="subject" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=10;" value="Anmeldung am Kundenportal nicht möglich" vertex="1">
+                    <mxGeometry height="34" width="530" x="295" y="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="prioritylabel" parent="1" style="text;html=1;align=left;verticalAlign=middle;" value="Priorität *" vertex="1">
+                    <mxGeometry height="32" width="140" x="130" y="255" as="geometry"/>
+                </mxCell>
+                <mxCell id="priority" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=10;" value="Mittel                                          ▼" vertex="1">
+                    <mxGeometry height="36" width="250" x="295" y="255" as="geometry"/>
+                </mxCell>
+                <mxCell id="priorityhint" parent="1" style="text;html=1;align=left;fontSize=11;" value="Auswahl: Niedrig / Mittel / Hoch / Kritisch" vertex="1">
+                    <mxGeometry height="32" width="275" x="565" y="258" as="geometry"/>
+                </mxCell>
+                <mxCell id="desclabel" parent="1" style="text;html=1;align=left;verticalAlign=top;" value="Beschreibung" vertex="1">
+                    <mxGeometry height="30" width="140" x="130" y="315" as="geometry"/>
+                </mxCell>
+                <mxCell id="description" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="Benutzer meldet einen Fehler bei der Anmeldung.&#xa;(nur lesbar)" vertex="1">
+                    <mxGeometry height="75" width="530" x="295" y="313" as="geometry"/>
+                </mxCell>
+                <mxCell id="commentlabel" parent="1" style="text;html=1;align=left;verticalAlign=top;" value="Neuer Kommentar" vertex="1">
+                    <mxGeometry height="30" width="145" x="130" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="comment" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="Kommentar eingeben …" vertex="1">
+                    <mxGeometry height="100" width="530" x="295" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="feedback" parent="1" style="text;html=1;align=left;fontSize=11;" value="* Pflichtfeld  |  Änderungen vor dem Speichern prüfen." vertex="1">
+                    <mxGeometry height="25" width="500" x="295" y="523" as="geometry"/>
+                </mxCell>
+                <mxCell id="cancel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Abbrechen" vertex="1">
+                    <mxGeometry height="42" width="125" x="510" y="575" as="geometry"/>
+                </mxCell>
+                <mxCell id="save" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;" value="Änderungen speichern" vertex="1">
+                    <mxGeometry height="42" width="175" x="650" y="575" as="geometry"/>
+                </mxCell>
+                <mxCell id="close" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Ticket schließen …" vertex="1">
+                    <mxGeometry height="42" width="175" x="295" y="575" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
