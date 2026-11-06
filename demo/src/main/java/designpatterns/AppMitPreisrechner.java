@@ -6,45 +6,41 @@ public class AppMitPreisrechner {
 
     public static void main(String[] args) {
 
-        /* Es wird dynamisch ermittelt, ob Rabatt verwendet werden soll
-         */
+        // es wird dynamisch ermittelt, ob Rabatt verwendet werden soll
         boolean mitRabatt = benutzeRabatt();
 
         PreisRechner pRechner = new PreisRechner();
         double betrag = 150;
-
         
         System.out.println("Betrag: " + betrag);
         
         PreisStrategie strategie;
-        
+
         if (mitRabatt) {
             System.out.println("Der Preis wird mit Rabatt berechnet");
-            
             strategie = new RabattStrategie();
-            
         } else {
             System.out.println("Der Preis wird ohne Rabatt berechnet");
-            
             strategie = new NormalpreisStrategie();
         }
         
         pRechner.setStrategie(strategie);
-        // pRechner.setStrategie( b -> b*2 );
+        // pRechner.setStrategie( b -> b*2 ); // Bsp.: Lambda-Funktion als Argument übergeben
         
         double preis = pRechner.berechnePreis(betrag);
         
         System.out.println("Preis: " + preis);
-        
     } // end of main
 
     /**
+     * Legt dynamisch fest, ob Rabatt verwedet werden soll.
      * 
      * @return true, wenn Rabatt benutzt werden soll, ansonsten false
      */
     static boolean benutzeRabatt() {
         System.out.println("Mit Rabatt (j/n)?");
 
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
 
