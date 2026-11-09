@@ -4,8 +4,14 @@
 - Eingabevalidierung und UI-Konzeption
 - Dateien im Ordner tag06/
 
+- Algorithmen zu der grundlegenden Verarbeitung der Daten aus einem Array oder aus einer Liste
 - Dateien im Ordner algorithmen/
-    - 
+- Java Projekt 'demo', Algorithmen in 'src/main/java/algorithmen/GrundlagenDev.java'
+
+- Aufgaben nach 13:30 Uhr:
+
+    - tag06/a02.md ODER tag06/a03.md 
+    - Teilaufgaben A3 bis A6 aus der Datei 'algorithmen/grundlagen dev.md'
 
 ## 06.11
 - UI/UX, Ergonomie und Barrierefreiheit

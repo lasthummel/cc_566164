@@ -17,3 +17,33 @@ FUNKTION zaehleLangeFaelle(dauern)
     ZURÜCKGEBEN: anzahl
 ENDE FUNKTION
 ```
+
+## A3 - Min und Max
+
+Entwickeln Sie mit Pseudocode die Funktion `findeMinMax`, die als Parameter ein Array mit Ganzzahlen bekommt, den kleinesten und den größten Wert ermittelt und die ermittelten Werte zurück liefert.
+
+**Lösung.**  
+
+```text
+FUNKTION findeMinMax(werte)
+
+    minimum = werte[0]
+    maximum = werte[0]
+
+    FÜR i VON 1 BIS LÄNGE(werte) - 1
+        WENN werte[i] < minimum DANN
+            minimum = werte[i]
+        ENDE WENN
+
+        WENN werte[i] > maximum DANN
+            maximum = werte[i]
+        ENDE WENN
+    ENDE FÜR
+
+    ZURÜCKGEBEN: (minimum, maximum)
+ENDE FUNKTION
+```
+
+
+---------------  
+weitere Lösungen folgen...
