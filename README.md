@@ -1,5 +1,10 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 09.11
+- Eingabevalidierung und UI-Konzeption
+- Dateien im Ordner tag06/
+
+
 ## 06.11
 - UI/UX, Ergonomie und Barrierefreiheit
 - Dateien im Ordner tag05/
