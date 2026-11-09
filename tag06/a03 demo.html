@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tag 6 – Validierungsdemo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 760px;
+            margin: 2rem auto;
+            padding: 0 1rem
+        }
+
+        form {
+            display: grid;
+            gap: 1rem
+        }
+
+        .field {
+            display: grid;
+            gap: .25rem
+        }
+
+        label {
+            font-weight: 600
+        }
+
+        input,
+        textarea,
+        select,
+        button {
+            font: inherit;
+            padding: .55rem
+        }
+
+        .error {
+            color: #9b1c1c
+        }
+
+        .success {
+            color: #176b35
+        }
+
+        .actions {
+            display: flex;
+            gap: .75rem
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Wartungstermin anlegen</h1>
+    <p>Didaktische Demo. KI generiert</p>
+    <form id="maintenanceForm" novalidate>
+        <div class="field"><label for="machine">Maschine *</label><select id="machine">
+                <option value="">Bitte auswählen</option>
+                <option>M-42</option>
+                <option>M-43</option>
+            </select>
+            <div id="machineError" class="error" aria-live="polite"></div>
+        </div>
+        <div class="field"><label for="date">Wartungsdatum *</label><input id="date" type="date">
+            <div id="dateError" class="error" aria-live="polite"></div>
+        </div>
+        <div class="field"><label for="start">Startzeit *</label><input id="start" type="time">
+            <div id="startError" class="error" aria-live="polite"></div>
+        </div>
+        <div class="field"><label for="end">Endzeit *</label><input id="end" type="time">
+            <div id="endError" class="error" aria-live="polite"></div>
+        </div>
+        <div class="field"><label for="description">Beschreibung * (20–500 Zeichen)</label><textarea id="description"
+                rows="5"></textarea>
+            <div id="descriptionError" class="error" aria-live="polite"></div>
+        </div>
+        <div class="actions"><button type="submit">Wartungstermin speichern</button><button
+                type="reset">Abbrechen</button></div>
+        <div id="result" class="success" aria-live="polite"></div>
+    </form>
+    <script>
+        const form = document.querySelector("#maintenanceForm");
+        const result = document.querySelector("#result");
+        function clearErrors() { document.querySelectorAll(".error").forEach(e => e.textContent = ""); result.textContent = "" }
+        function setError(id, message) { document.querySelector("#" + id + "Error").textContent = message }
+        form.addEventListener("submit", event => {
+            event.preventDefault(); clearErrors();
+            const machine = document.querySelector("#machine").value;
+            const date = document.querySelector("#date").value;
+            const start = document.querySelector("#start").value;
+            const end = document.querySelector("#end").value;
+            const description = document.querySelector("#description").value.trim();
+            let valid = true;
+            if (!machine) { setError("machine", "Bitte wählen Sie eine Maschine aus."); valid = false }
+            if (!date) { setError("date", "Bitte geben Sie ein Wartungsdatum ein."); valid = false }
+            if (!start) { setError("start", "Bitte geben Sie eine Startzeit ein."); valid = false }
+            if (!end) { setError("end", "Bitte geben Sie eine Endzeit ein."); valid = false }
+            if (date) {
+                const today = new Date(); today.setHours(0, 0, 0, 0);
+                const selected = new Date(date + "T00:00:00");
+                if (selected < today) { setError("date", "Das Wartungsdatum darf nicht in der Vergangenheit liegen."); valid = false }
+            }
+            if (start && end && end <= start) { setError("end", "Die Endzeit muss nach der Startzeit liegen."); valid = false }
+            if (description.length < 20 || description.length > 500) { setError("description", "Die Beschreibung muss zwischen 20 und 500 Zeichen enthalten."); valid = false }
+            if (valid) result.textContent = "Validierung erfolgreich. Der Termin könnte jetzt gespeichert werden.";
+        });
+    </script>
+</body>
+
+</html>
