@@ -1,5 +1,9 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
+## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
+## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
+
 ## 09.11
 - Eingabevalidierung und UI-Konzeption
 - Dateien im Ordner tag06/
