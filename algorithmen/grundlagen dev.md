@@ -1,5 +1,16 @@
 # Aufgabe 'Algorithmen - Grundlegende Verarbeitung'
 
+Für alle Teilaufgaben gelten folgende Vereinbarungen:
+
+- Arrays und Listen sind ab Index `0` indiziert.
+- `LÄNGE(liste)` liefert die Anzahl der Elemente.
+- Bei `FÜR i VON a BIS b` werden beide Grenzen einschließlich durchlaufen. Ist `a > b`, wird die Schleife nicht ausgeführt.
+- `=` bezeichnet eine Zuweisung, `==` einen Vergleich auf Gleichheit.
+- `ANHÄNGEN(liste, wert)` fügt den Wert am Ende der Liste hinzu.
+- `ABBRUCH` beendet unmittelbar die innerste Schleife.
+- Eine Map speichert Schlüssel-Wert-Paare. `ENTHÄLT_SCHLÜSSEL(map, schluessel)` prüft, ob ein Schlüssel bereits vorhanden ist.
+- Sofern nicht ausdrücklich anders angegeben, bleibt die Reihenfolge der Eingabedaten unverändert.
+
 ## A1 - Zählen von Elementen unter einer Bedingung
 
 Entwickeln Sie mit Pseudocode die Funktion `zaehleLangeFaelle(dauer: Ganzzahl[]): Ganzzahl`. Die Funktion soll die Anzahl der Elemente des Array ermitteln, die den Wert > 30 haben. Die Funktion liefert die Anzahl zurück.
