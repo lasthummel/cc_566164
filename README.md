@@ -4,6 +4,8 @@
 - Eingabevalidierung und UI-Konzeption
 - Dateien im Ordner tag06/
 
+- Dateien im Ordner algorithmen/
+    - 
 
 ## 06.11
 - UI/UX, Ergonomie und Barrierefreiheit
