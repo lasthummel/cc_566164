@@ -17,10 +17,13 @@ public class TestRabatt {
 
     public static void main(String[] args) {
         
-        int alter = Integer.MAX_VALUE + 1;  // int-Overflow!!!  alter ist negativ!
+        int alter = Integer.MAX_VALUE + 1;  // int-Overflow!!!  alter ist negativ, binär: 10000000000000000000000000000000
+
+        System.out.println("alter: " + alter);
+        System.out.println("alter binär: " + Integer.toString(alter, 2)); // Vorzeichen + Betrag
 
         int rabatt = berechneRabatt(alter, false);
 
-        System.out.println("rabatt: " + rabatt); // ?
+        System.out.println("rabatt: " + rabatt); // 10
     }
 }
