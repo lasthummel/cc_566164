@@ -8,7 +8,11 @@
 - Softwarequalität und Qualitätssicherung
 - Dateien im Ordner tag07/
 
+- Java Projekt 'demo', Algorithmen in 'src/main/java/algorithmen/GrundlagenDev.java'
 
+- Aufgaben nach 13:30 Uhr:
+    - tag07/a04.md
+    - tag07/a05.md
 
 ## 09.11
 - Eingabevalidierung und UI-Konzeption
