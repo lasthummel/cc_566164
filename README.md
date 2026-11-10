@@ -4,6 +4,12 @@
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 
+## 10.11
+- Softwarequalität und Qualitätssicherung
+- Dateien im Ordner tag07/
+
+
+
 ## 09.11
 - Eingabevalidierung und UI-Konzeption
 - Dateien im Ordner tag06/
