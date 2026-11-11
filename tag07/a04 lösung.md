@@ -26,7 +26,7 @@ Nennen Sie vier relevante Qualitätsmerkmale für das Szenario.
 - Usability
 - Wartbarkeit
 - Zuverlässigkeit
-- Performance/Effizienz
+- Performance/Effizienz ??? (im Szenario nicht erkennbar)
 
 ## A2
 Entwickeln Sie ein kleines QS-Konzept mit mindestens vier Maßnahmen. Ordnen Sie jeder Maßnahme ein Qualitätsziel oder Risiko zu.  
@@ -39,13 +39,14 @@ Entwickeln Sie ein kleines QS-Konzept mit mindestens vier Maßnahmen. Ordnen Sie
 | Code Review | fachliche und strukturelle Fehler früh erkennen |
 | statische Analyse | problematische Konstruktionen erkennen |
 | CI | Tests/Analyse bei Änderungen automatisiert ausführen |
+| Pull-Requests einführen | kein Übernehmen in main ohne Review |
 | Komplexitätsmetrik | auffällig komplexe Methoden identifizieren |
 
 ## A3
 Begründen Sie, warum ein Code Review für dieses Projekt sinnvoll ist.  
 
 **Lösung.**  
-Ein Code Review ist sinnvoll, weil eine zweite Person die Implementierung unabhängig prüfen kann. Dadurch können fachliche Fehler, unklare Konstruktionen und Wartbarkeitsprobleme früh erkannt werden. Außerdem werden Änderungen vor der Integration kontrolliert.
+Viwe-Augen-Prinzip! Ein Code Review ist sinnvoll, weil eine zweite Person die Implementierung unabhängig prüfen kann. Dadurch können fachliche Fehler, unklare Konstruktionen und Wartbarkeitsprobleme früh erkannt werden. Außerdem werden Änderungen vor der Integration kontrolliert.
 
 ## A4
 Bestimmen Sie die zyklomatische Komplexität von saveMaintenance(), wenn der Kontrollfluss zusammenhängend ist und die vier if-Entscheidungen jeweils einen zusätzlichen unabhängigen Pfad erzeugen.  

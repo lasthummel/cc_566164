@@ -4,6 +4,19 @@
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 
+## 11.11
+- Wdh. "Planen eines Softwareproduktes"
+
+- Dateien im Ordner tag08/
+    - fallstudue01.md
+- Dateien im Ordner algorithmen/
+    - Optional: grundlagen azswerten.md
+
+
+Aufgabe tag08/fallstudie01.md bis 11:40 Uhr  
+Pause bitte nicht vergessen!
+
+
 ## 10.11
 - Softwarequalität und Qualitätssicherung
 - Dateien im Ordner tag07/
