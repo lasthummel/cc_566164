@@ -10,7 +10,7 @@
 - Dateien im Ordner tag08/
     - fallstudue01.md
 - Dateien im Ordner algorithmen/
-    - Optional: grundlagen azswerten.md
+    - Optional: grundlagen auswerten.md
 
 
 Aufgabe tag08/fallstudie01.md bis 11:40 Uhr  
