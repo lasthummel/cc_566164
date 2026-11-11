@@ -10,11 +10,10 @@
 - Dateien im Ordner tag08/
     - fallstudue01.md
 - Dateien im Ordner algorithmen/
-    - Optional: grundlagen auswerten.md
+    - Optional: 'grundlagen auswerten.md'
 
-
-Aufgabe tag08/fallstudie01.md bis 11:40 Uhr  
-Pause bitte nicht vergessen!
+- Aufgaben nach 13:30 Uhr
+    - tag08/fallstudie02.md  
 
 
 ## 10.11
