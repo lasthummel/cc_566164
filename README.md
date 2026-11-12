@@ -4,6 +4,11 @@
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 
+## 12.11
+- Codeanalyse und Ablaufverfolgung
+    - Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
+     
+
 ## 11.11
 - Wdh. "Planen eines Softwareproduktes"
 
