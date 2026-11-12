@@ -6,8 +6,20 @@
 
 ## 12.11
 - Codeanalyse und Ablaufverfolgung
-    - Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
-     
+- Dateien im Ordner tag09/
+
+- Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
+    - Java-Beispiele
+    - Klassen Objekte Referenzen Attribute Methoden.pptx
+
+- Aufgaben nach 13:30 Uhr
+    - Java-Beispiele durchgehen: Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
+    - Kleine Aufgabe in den Kommentaren in B04_Arrays.java
+    - Klassen Objekte Referenzen Attribute Methoden.pptx
+
+    - tag09/
+        - a01.md
+        - a02.md oder a03.md
 
 ## 11.11
 - Wdh. "Planen eines Softwareproduktes"
