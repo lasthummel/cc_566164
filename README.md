@@ -4,6 +4,22 @@
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 
+## 13.11
+- Programmierlogik, Fehleranalyse und Lösungsentwicklung
+- Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
+    - Java-Beispiele
+     - Optional: Arrays.pptx
+
+- Dateien im Ordner tag10/
+
+- Aufgaben nach 13:30 Uhr
+    - Java-Beispiele durchgehen: Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
+    - tag10/
+        - a01.md
+        - a02.md
+        - a03.md
+
+
 ## 12.11
 - Codeanalyse und Ablaufverfolgung
 - Dateien im Ordner tag09/
