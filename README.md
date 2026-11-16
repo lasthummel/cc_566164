@@ -10,6 +10,14 @@
     - a01.md
     - 'algorithmen erweitert entwickeln.md' bis 12:10 Uhr
 
+- Dateien im Ordner 'algorithmen'
+    - 'erweitert entwickeln.md'
+    - 'erweitert entwickeln lösung.md'
+
+- Aufgaben nach 13:30 Uhr
+    - Optional: 'mehrdim arrays.md'
+    - 'sort-bubblesort.md'
+    - 'design patterns aufgabe.md'
 
 ## 13.11
 - Programmierlogik, Fehleranalyse und Lösungsentwicklung
