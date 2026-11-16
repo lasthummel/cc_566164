@@ -4,6 +4,12 @@
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 
+## 16.11
+- Algorithmische Problemlösung und Pseudocode
+- Dateien im Ordner tag11/
+
+
+
 ## 13.11
 - Programmierlogik, Fehleranalyse und Lösungsentwicklung
 - Java Projekt 'demo', Quick-Java in 'src/main/java/javaexam/'
