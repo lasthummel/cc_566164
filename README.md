@@ -7,7 +7,8 @@
 ## 16.11
 - Algorithmische Problemlösung und Pseudocode
 - Dateien im Ordner tag11/
-
+    - a01.md
+    - 'algorithmen erweitert entwickeln.md' bis 12:10 Uhr
 
 
 ## 13.11
