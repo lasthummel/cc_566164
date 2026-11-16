@@ -40,7 +40,7 @@ Gegeben sind die Messwerte: `[-8, -3, -11, -3, -5]`.
 
 **Lösung**  
 
-1. Minimum ist `-11`. Bei nichtleerer Liste wird `minimum` mit dem ersten vorhandenen Wert initialisiert, hier -8. Danach werden die Werte verglichen. Eine Initialisierung mit 0 wäre fachlich ungeeignet, da 0 nicht in der Liste vorkommt und kleiner als alle tatsächlichen Werte ist.
+1. Minimum ist `-11`. Bei nichtleerer Liste wird `minimum` mit dem ersten vorhandenen Wert initialisiert, hier -8. Danach werden die Werte verglichen. Eine Initialisierung mit 0 wäre fachlich ungeeignet, da 0 nicht für alle möglichen Listen garantiert größer als mindestens ein Listenelement ist.
 
 2.
 ```text
