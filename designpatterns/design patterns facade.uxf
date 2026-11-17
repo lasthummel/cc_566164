@@ -1,0 +1,26 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>41</x><y>77</y><w>224</w><h>98</h></coordinates><panel_attributes>BerichtsAnsicht
+--
+- fassade : BerichtsFassade
+--
++ monatsberichtAnfordern(jahr : int, monat : int) : byte[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>349</x><y>56</y><w>336</w><h>168</h></coordinates><panel_attributes>BerichtsFassade
+--
+- datenService : DatenService
+- statistikService : StatistikService
+- pdfService : PdfService
+--
++ erstelleMonatsbericht(jahr : int, monat : int) : byte[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>727</x><y>56</y><w>301</w><h>168</h></coordinates><panel_attributes>Facade (Strukturmuster)
+- Ein einfacher Einstiegspunkt fuer Clients
+- Fassade koordiniert mehrere Subsystemdienste
+- Client muss deren Aufrufreihenfolge nicht kennen
+- Dienste bleiben eigenstaendig nutzbar
+- Keine Vererbung erforderlich</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>69</x><y>385</y><w>294</w><h>91</h></coordinates><panel_attributes>DatenService
+--
++ ladeBuchungen(jahr : int, monat : int) : List&lt;Buchung&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>419</x><y>385</y><w>294</w><h>91</h></coordinates><panel_attributes>StatistikService
+--
++ berechneKennzahlen(buchungen : List&lt;Buchung&gt;) : Kennzahlen</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>769</x><y>385</y><w>294</w><h>91</h></coordinates><panel_attributes>PdfService
+--
++ erstellePdf(kennzahlen : Kennzahlen) : byte[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>258</x><y>112</y><w>105</w><h>28</h></coordinates><panel_attributes>lt=-&gt;
+m1=1
+m2=1</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>209</x><y>217</y><w>217</w><h>182</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>290;10;290;120;10;120;10;240</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>217</y><w>70</w><h>182</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;120;80;120;80;240</additional_attributes></element><element><id>Relation</id><coordinates><x>615</x><y>217</y><w>315</w><h>182</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;120;430;120;430;240</additional_attributes></element><element><id>UMLNote</id><coordinates><x>209</x><y>511</y><w>630</w><h>77</h></coordinates><panel_attributes>Interne Aufrufabfolge:
+1. Buchungen laden   2. Kennzahlen berechnen   3. PDF erzeugen
+Die Oberflaeche ruft nur die BerichtsFassade auf.</panel_attributes><additional_attributes></additional_attributes></element></diagram>
