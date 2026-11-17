@@ -7,7 +7,14 @@
 ## 17.11
 - Grafische Darstellung der Algorithmen
 - Teststufen und Testarten
+- Testfallermittlung und Testdatengenerierung
+- Dateien im Ordner tag12/
 
+- Aufgaben nach 13:30 Uhr
+    - a04.md
+    - a06.md
+    - design patterns aufgabe.md
+    - sort-selectionsort.md
 
 ## 16.11
 - Algorithmische Problemlösung und Pseudocode
