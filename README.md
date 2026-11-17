@@ -6,6 +6,7 @@
 
 ## 17.11
 - Grafische Darstellung der Algorithmen
+- Teststufen und Testarten
 
 
 ## 16.11
