@@ -4,6 +4,10 @@
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 ## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
 
+## 17.11
+- Grafische Darstellung der Algorithmen
+
+
 ## 16.11
 - Algorithmische Problemlösung und Pseudocode
 - Dateien im Ordner tag11/
