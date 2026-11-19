@@ -2,7 +2,11 @@
 
 ## 19.11
 - Relationale Datenmodelle und Normalisierung
+- SQL-Datenabfragen
 - Dateien im Ordner tag13/
+
+- Aufgaben nach 13:30 Uhr
+    - a04.md
 
 ## 17.11
 - Grafische Darstellung der Algorithmen
