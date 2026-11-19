@@ -7,6 +7,9 @@
 
 - Aufgaben nach 13:30 Uhr
     - a04.md
+    - a05.md (bereits angefangen)
+    - a06.md
+    - sort-quicksort.md
 
 ## 17.11
 - Grafische Darstellung der Algorithmen
