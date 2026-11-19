@@ -1,8 +1,8 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
-## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
-## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
-## Achtung! Der 18.11 (Mittwoch) ist unterrichtsfrei.
+## 19.11
+- Relationale Datenmodelle und Normalisierung
+- Dateien im Ordner tag13/
 
 ## 17.11
 - Grafische Darstellung der Algorithmen
