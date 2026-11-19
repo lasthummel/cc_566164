@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selection Sort – Interaktive Visualisierung</title>
+<style>
+:root{color-scheme:light;--bg:#f2f5f9;--panel:#fff;--ink:#18283b;--muted:#52647a;--line:#dce3ec;--blue:#255bb5;--orange:#9a4900;--green:#176746}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:24px}h1{font-size:clamp(1.8rem,4vw,2.7rem);margin:0}h2{font-size:1.1rem;margin:0 0 12px}p{margin:8px 0}.intro{color:var(--muted);margin-bottom:20px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.field{flex:1;min-width:220px}label{font-weight:600}input,select,button{font:inherit}input[type=text],select{width:100%;padding:9px 12px;border:1px solid #a9b7c8;border-radius:8px;background:white;color:var(--ink)}button{border:1px solid #a9b7c8;border-radius:8px;padding:9px 13px;background:white;color:var(--ink);cursor:pointer;font-weight:600}button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}button:disabled{opacity:.4;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #73a5ff;outline-offset:3px}input[type=range]{accent-color:var(--blue);width:100%}.hint,.small{font-size:.87rem;color:var(--muted)}#error{color:#a32727;min-height:1.4em;margin:4px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}.stat{background:#f5f7fa;border-radius:9px;padding:10px 13px}.stat strong{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums}.stat span{font-size:.8rem;color:var(--muted)}.array{display:flex;gap:8px;align-items:stretch;justify-content:center;overflow-x:auto;padding:14px 0;min-height:100px}.cell{flex:1 0 45px;max-width:100px;text-align:center;min-width:0}.value{display:flex;align-items:center;justify-content:center;height:64px;background:#edf2f8;border:2px solid #a9b7c8;border-radius:9px;font-size:clamp(1rem,2vw,1.65rem);font-weight:700;font-variant-numeric:tabular-nums}.index{color:var(--muted);font-size:.8rem}.cell.compare .value{background:#e0edff;border-color:var(--blue);color:#17458e}.cell.swap .value{background:#fff0d6;border-color:#d97706;color:var(--orange)}.cell.sorted .value{background:#dff5e8;border-color:#29865e;color:var(--green)}.legend{display:flex;gap:15px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;border:1px solid currentColor;vertical-align:-1px;background:#edf2f8}.legend .c::before{background:#e0edff;color:var(--blue)}.legend .s::before{background:#fff0d6;color:#d97706}.legend .f::before{background:#dff5e8;color:var(--green)}.status{background:#f5f7fa;border-left:4px solid var(--blue);padding:12px 15px;border-radius:5px;margin:16px 0;min-height:78px}.status strong{display:block}.controls{justify-content:center}.timeline{margin:18px 0 4px}.split{display:grid;grid-template-columns:1.15fr 1fr;gap:16px}.split .panel{min-width:0}pre{margin:0;overflow:auto;background:#f5f7fa;border-radius:8px;padding:10px;font:14px/1.65 ui-monospace,Consolas,monospace}.code-line{display:block;min-width:max-content;padding:0 6px;border-left:3px solid transparent}.code-line.active{background:#dceaff;border-left-color:var(--blue);font-weight:700}table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px;vertical-align:top}th{color:var(--muted)}.scroll{overflow:auto;max-height:320px}footer{color:var(--muted);font-size:.85rem}@media(max-width:760px){main{padding:12px}.panel{padding:14px}.split{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.array{justify-content:flex-start}.cell{flex-basis:44px}.value{height:54px}}
+.stats{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}.cell.minimum .value{background:#eee2ff;border-color:#7852a9;color:#50317b}.cell.minimum.compare .value{outline:3px solid #255bb5;outline-offset:2px}.legend .m::before{background:#eee2ff;color:#7852a9}</style>
+</head>
+<body>
+<main>
+<header><h1>Selection Sort</h1><p class="intro">Sortieralgorithmus Schritt für Schritt nachvollziehen · IHK-Vorbereitung Anwendungsentwicklung · KI generiert</p></header>
+<section class="panel" aria-label="Eingabedaten">
+<div class="row">
+<div class="field"><label for="values">Array (ganze Zahlen, durch Kommas getrennt)</label><input id="values" type="text" value="7, 3, 5, 2, 4" maxlength="200" spellcheck="false"></div>
+<div class="field"><label for="mode">Algorithmusvariante</label><select id="mode"><option value="classic">Klassisch – wie in A1–A3</option><option value="optimized">Ohne Selbsttausch – A4</option></select></div>
+<button id="apply" class="primary">Übernehmen</button>
+</div>
+<p class="hint">0 bis 12 ganze Zahlen zwischen −999 und 999. Ein leeres Eingabefeld entspricht einem leeren Array.</p>
+<div class="row" id="examples"><button data-values="7, 3, 5, 2, 4">Aufgabe A2</button><button data-values="1, 2, 3, 4, 5">Sortiert</button><button data-values="5, 4, 3, 2, 1">Umgekehrt</button><button data-values="3, -2, 3, 0">Duplikate / negativ</button><button id="random">Zufallswerte</button></div>
+<p id="error" role="alert"></p>
+</section>
+<section class="panel" aria-label="Sortiervisualisierung">
+<div class="stats"><div class="stat"><span>Durchlauf i</span><strong id="pass">–</strong></div><div class="stat"><span>Vergleich j</span><strong id="index">–</strong></div><div class="stat"><span>Minimum-Index</span><strong id="minimum">–</strong></div><div class="stat"><span>Elementvergleiche</span><strong id="comparisons">0</strong></div><div class="stat"><span>Tauschblöcke</span><strong id="swaps">0</strong></div></div>
+<div id="array" class="array" role="img" aria-label="Array"></div>
+<div class="legend"><span>Unsortierter Bereich</span><span class="c">Aktueller Vergleich</span><span class="s">Tauschblock</span><span class="m">Minimum-Kandidat</span><span class="f">Endgültige Position</span></div>
+<div class="status" aria-live="polite"><strong id="phase"></strong><span id="explanation"></span></div>
+<div class="row controls"><button id="reset" title="Zum Ausgangszustand">⏮ Anfang</button><button id="prev">← Zurück</button><button id="play" class="primary">▶ Abspielen</button><button id="next">Weiter →</button><button id="passNext">Durchlauf beenden</button><button id="end">Ende ⏭</button></div>
+<div class="timeline"><label for="step">Schritt <output id="stepLabel"></output></label><input id="step" type="range" min="0" max="0" value="0" step="1"></div>
+<div class="row"><label for="speed">Tempo</label><input id="speed" type="range" min="1" max="5" value="3" step="1" style="width:140px"><span id="speedLabel" class="small"></span></div>
+</section>
+<div class="split">
+<section class="panel"><h2>Pseudocode</h2><pre id="code" aria-label="Pseudocode des Algorithmus"></pre><p class="hint">Die Hervorhebung markiert die aktuelle algorithmische Aktion, nicht jede einzelne Zuweisung.</p></section>
+<section class="panel"><h2>Protokoll der Durchläufe</h2><div class="scroll"><table><thead><tr><th>i</th><th>minIndex</th><th>Arrayzustand</th><th>Vergl.</th><th>Tausch</th></tr></thead><tbody id="history"></tbody></table></div><p class="hint">Zähler pro abgeschlossenem Durchlauf, nicht kumuliert. Ein Selbsttausch zählt in der klassischen Variante als Tauschblock.</p><p><strong>Prinzip:</strong> Nach jedem vollständigen Durchlauf steht das kleinste Element des verbleibenden Bereichs an seiner endgültigen Position.</p><p id="complexity" class="small"></p></section>
+</div>
+<footer>Offline-Demonstration · Keine externen Bibliotheken · Aufsteigende In-place-Sortierung</footer>
+</main>
+<script>
+"use strict";
+function buildTrace(input, optimized) {
+    const a = input.slice(), n = a.length, frames = [];
+    let comparisons = 0, swaps = 0, fixed = n < 2 ? n : 0;
+    function add(type,i,j,minIndex,lines,detail={}) {
+        frames.push({type,i,j,minIndex,lines,values:a.slice(),comparisons,swaps,fixed,...detail});
+    }
+    add("start",null,null,null,["n"]);
+    for(let i=0;i<n-1;i++){
+        let minIndex=i, c0=comparisons,s0=swaps;
+        add("passStart",i,null,minIndex,["outer","min"]);
+        for(let j=i+1;j<n;j++){
+            const left=a[j],right=a[minIndex],smaller=left<right;
+            comparisons++;
+            add("compare",i,j,minIndex,["inner","if"],{left,right,smaller});
+            if(smaller){
+                minIndex=j;
+                add("update",i,j,minIndex,["update"]);
+            } else add("keep",i,j,minIndex,["if"]);
+        }
+        if(!optimized||minIndex!==i){
+            const left=a[i],right=a[minIndex];
+            const temp=a[i];a[i]=a[minIndex];a[minIndex]=temp;swaps++;
+            add("swap",i,null,minIndex,["temp","assign1","assign2"],{left,right});
+        } else add("skip",i,null,minIndex,["check"]);
+        fixed=i+1;
+        if(fixed===n-1)fixed=n;
+        add("passEnd",i,null,minIndex,["outerEnd"],{passComparisons:comparisons-c0,passSwaps:swaps-s0});
+    }
+    fixed=n;
+    add("done",null,null,null,["end"]);
+    return frames;
+}
+const $ = id => document.getElementById(id);
+let frames = [], cursor = 0, timer = null, activeMode = false, activeInput = [];
+const delays = [1600,1050,650,350,150];
+function codeLines(opt) {
+    const pad=opt?"            ":"        ";
+    return [
+        ["head","FUNKTION selectionSort(werte : Ganzzahl[]) : void"],
+        ["n","    n = LÄNGE(werte)"],["blank",""],
+        ["outer","    FÜR i VON 0 BIS n - 2"],
+        ["min","        minIndex = i"],["blank2",""],
+        ["inner","        FÜR j VON i + 1 BIS n - 1"],
+        ["if","            WENN werte[j] < werte[minIndex] DANN"],
+        ["update","                minIndex = j"],
+        ["ifEnd","            ENDE WENN"],["innerEnd","        ENDE FÜR"],
+        ["blank3",""],
+        ...(opt?[["check","        WENN minIndex != i DANN"]]:[]),
+        ["temp",pad+"temp = werte[i]"],
+        ["assign1",pad+"werte[i] = werte[minIndex]"],
+        ["assign2",pad+"werte[minIndex] = temp"],
+        ...(opt?[["checkEnd","        ENDE WENN"]]:[]),
+        ["outerEnd","    ENDE FÜR"],["end","ENDE FUNKTION"]
+    ];
+}
+function parseValues(raw) {
+    if (!raw.trim()) return [];
+    const parts = raw.split(",").map(x=>x.trim());
+    if (parts.length > 12 || parts.some(x=>!/^[-+]?\d+$/.test(x))) throw Error("Bitte höchstens 12 ganze Zahlen, getrennt durch Kommas, eingeben.");
+    const values = parts.map(Number);
+    if (values.some(x=>!Number.isSafeInteger(x)||Math.abs(x)>999)) throw Error("Alle Werte müssen zwischen −999 und 999 liegen.");
+    return values;
+}
+function pause() {
+    if (timer !== null) clearInterval(timer);
+    timer = null;
+    $("play").textContent = "▶ Abspielen";
+}
+function apply() {
+    let input;
+    try { input = parseValues($("values").value); }
+    catch (e) { $("error").textContent = e.message; return; }
+    pause();
+    $("error").textContent = "";
+    activeInput = input;
+    activeMode = $("mode").value === "optimized";
+    frames = buildTrace(input, activeMode);
+    cursor = 0;
+    $("step").max = frames.length - 1;
+    render();
+}
+function describe(f){
+    switch(f.type){
+        case "start":return ["Ausgangszustand",f.values.length<2?"Weniger als zwei Elemente: keine Vergleiche nötig.":"Die Minimumsuche beginnt links."];
+        case "passStart":return ["Durchlauf "+(f.i+1)+" beginnt","minIndex = "+f.i+". Suche im Bereich von Index "+f.i+" bis "+(f.values.length-1)+"."];
+        case "compare":return ["Mit bisherigem Minimum vergleichen",f.left+" < "+f.right+" ist "+(f.smaller?"WAHR. Der Minimum-Index wird aktualisiert.":"FALSCH. Der Minimum-Index bleibt erhalten.")];
+        case "update":return ["Neues Minimum gefunden","minIndex = "+f.minIndex+". Der bisher kleinste Wert ist "+f.values[f.minIndex]+"."];
+        case "keep":return ["Minimum unverändert","Der bisherige Minimum-Index bleibt "+f.minIndex+"."];
+        case "swap":return [f.i===f.minIndex?"Selbsttausch":"Elemente vertauscht",f.i===f.minIndex?"Der Tauschblock wurde ausgeführt, obwohl beide Indizes gleich sind.":"Die Werte "+f.left+" und "+f.right+" wurden vertauscht."];
+        case "skip":return ["Selbsttausch vermieden","minIndex == i. Der Tauschblock entfällt; die Sortierung läuft weiter."];
+        case "passEnd":return ["Durchlauf "+(f.i+1)+" abgeschlossen","Das kleinste Element des betrachteten Bereichs ist endgültig eingeordnet."];
+        default:return ["Sortierung abgeschlossen","Das Array ist aufsteigend sortiert. Insgesamt "+f.comparisons+" Elementvergleiche und "+f.swaps+" Tauschblöcke."];
+    }
+}
+function render() {
+    const f=frames[cursor];
+    $("pass").textContent=f.i===null?"–":f.i;
+    $("index").textContent=f.j===null?"–":f.j;
+    $("minimum").textContent=f.minIndex===null?"–":f.minIndex;
+    $("comparisons").textContent=f.comparisons;
+    $("swaps").textContent=f.swaps;
+    $("array").replaceChildren();
+    $("array").setAttribute("aria-label","Array: ["+f.values.join(", ")+"]");
+    if (!f.values.length) $("array").textContent="[] – leeres Array";
+    f.values.forEach((v,k)=>{
+        const cell=document.createElement("div");cell.className="cell";
+        if(k<f.fixed)cell.classList.add("sorted");
+        else if(f.type==="swap"&&(k===f.i||k===f.minIndex))cell.classList.add("swap");
+        else {
+            if(k===f.minIndex)cell.classList.add("minimum");
+            if(f.type==="compare"&&(k===f.j||k===f.minIndex))cell.classList.add("compare");
+        }
+        const value=document.createElement("div");value.className="value";value.textContent=v;
+        const index=document.createElement("div");index.className="index";index.textContent="["+k+"]";
+        cell.append(value,index);$("array").append(cell);
+    });
+    const [phase,explanation]=describe(f);
+    $("phase").textContent=phase;$("explanation").textContent=explanation;
+    $("step").value=cursor;$("stepLabel").textContent=cursor+" / "+(frames.length-1);
+    $("code").replaceChildren();
+    codeLines(activeMode).forEach(([key,line])=>{
+        const span=document.createElement("span");span.className="code-line"+(f.lines.includes(key)?" active":"");
+        span.textContent=line||" ";$("code").append(span);
+    });
+    $("history").replaceChildren();
+    function historyRow(values){const tr=document.createElement("tr");values.forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});$("history").append(tr)}
+    historyRow(["Start","–","["+activeInput.join(", ")+"]","–","–"]);
+    frames.slice(0,cursor+1).filter(x=>x.type==="passEnd").forEach(x=>historyRow([x.i,x.minIndex,"["+x.values.join(", ")+"]",x.passComparisons,x.passSwaps]));
+    $("reset").disabled=$("prev").disabled=cursor===0;
+    $("next").disabled=$("end").disabled=$("passNext").disabled=$("play").disabled=cursor===frames.length-1;
+    $("complexity").textContent=activeMode?"Best und Worst Case: Θ(n²). Selbsttausch entfällt; alle Elementvergleiche bleiben erhalten.":"Best und Worst Case: Θ(n²). Ein Tauschblock pro Durchlauf, auch bei identischen Indizes.";
+    if(cursor===frames.length-1)pause();
+}
+function seek(k){pause();cursor=Math.max(0,Math.min(frames.length-1,k));render()}
+function play(){
+    if(timer!==null){pause();return}
+    if(cursor===frames.length-1)return;
+    $("play").textContent="⏸ Pause";
+    timer=setInterval(()=>{if(cursor<frames.length-1){cursor++;render()}else pause()},delays[Number($("speed").value)-1]);
+}
+$("apply").addEventListener("click",apply);
+$("values").addEventListener("keydown",e=>{if(e.key==="Enter")apply()});
+$("mode").addEventListener("change",apply);
+$("examples").addEventListener("click",e=>{const b=e.target.closest("[data-values]");if(b){$("values").value=b.dataset.values;apply()}});
+$("random").addEventListener("click",()=>{$("values").value=Array.from({length:7},()=>Math.floor(Math.random()*41)-20).join(", ");apply()});
+$("reset").onclick=()=>seek(0);
+$("prev").onclick=()=>seek(cursor-1);
+$("next").onclick=()=>seek(cursor+1);
+$("end").onclick=()=>seek(frames.length-1);
+$("passNext").onclick=()=>{const k=frames.findIndex((f,i)=>i>cursor&&f.type==="passEnd");seek(k<0?frames.length-1:k)};
+$("step").oninput=()=>seek(Number($("step").value));
+$("play").onclick=play;
+function updateSpeed(){const running=timer!==null;if(running)pause();$("speedLabel").textContent=delays[Number($("speed").value)-1]+" ms / Schritt";if(running)play()}
+$("speed").oninput=updateSpeed;
+updateSpeed();apply();
+</script>
+</body>
+</html>

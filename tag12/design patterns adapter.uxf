@@ -1,0 +1,22 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>180</y><w>310</w><h>110</h></coordinates><panel_attributes>TemperaturAnzeige (Client)
+--
+- sensor : TemperaturSensor
+--
++ aktualisieren() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>180</y><w>340</w><h>110</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+TemperaturSensor (Target)
+--
++ getTemperaturCelsius() : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>430</y><w>340</w><h>150</h></coordinates><panel_attributes>LegacySensorAdapter (Adapter)
+--
+- sensor : LegacySensor
+--
++ LegacySensorAdapter(sensor : LegacySensor)
++ getTemperaturCelsius() : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>450</y><w>240</w><h>100</h></coordinates><panel_attributes>LegacySensor (Adaptee)
+--
++ readFahrenheit() : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>220</y><w>210</w><h>30</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;15;190;15</additional_attributes></element><element><id>Relation</id><coordinates><x>650</x><y>280</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>820</x><y>490</y><w>210</w><h>30</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;190;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>0</x><y>430</y><w>320</w><h>120</h></coordinates><panel_attributes>Adapter (Strukturmuster)
+- Client verwendet die erwartete Schnittstelle.
+- Adapter implementiert diese Schnittstelle.
+- Adapter delegiert an das vorhandene Objekt.
+- Inkompatible Schnittstellen werden angepasst.
+- Vorhandene Bibliothek bleibt unverändert.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>80</x><y>580</y><w>360</w><h>70</h></coordinates><panel_attributes>Delegation und Anpassung in getTemperaturCelsius():
+return (sensor.readFahrenheit() - 32) * 5.0 / 9.0;
+Beispiel: 77 Grad Fahrenheit werden zu 25 Grad Celsius.</panel_attributes><additional_attributes></additional_attributes></element></diagram>
