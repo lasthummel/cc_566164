@@ -56,6 +56,7 @@ Erklären Sie, warum Einzelpreis und Menge in der Positionstabelle und nicht in 
 **Lösung**  
 Menge ist eine Eigenschaft der konkreten Bestellposition. Der vereinbarte Einzelpreis gehört ebenfalls zur Position, weil sich der aktuelle Listenpreis später ändern kann. Würden alte Bestellungen ausschließlich auf den aktuellen Listenpreis verweisen, könnten historische Bestellwerte nachträglich verfälscht werden.
 
+Die Menge hängt immer von der Kombination aus dieser einen Bestellung und diesem einen Artikel ab.
 
 ## A5. 
 Nennen Sie eine sinnvolle Integritätsregel, die das Schema zusätzlich absichern sollte.

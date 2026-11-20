@@ -1,5 +1,9 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 20.11
+- SQL-JOINs, Unterabfragen und Datenmanipulation
+- Dateien im Ordner tag14/
+
 ## 19.11
 - Relationale Datenmodelle und Normalisierung
 - SQL-Datenabfragen

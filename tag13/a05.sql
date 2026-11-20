@@ -41,3 +41,68 @@ FROM BESTELLUNG;
 SELECT *
 FROM BESTELLUNG
 WHERE Status = 'OFFEN';
+
+SELECT *
+FROM BESTELLUNG
+WHERE Gesamtbetrag >= 80.00;
+
+SELECT *
+FROM BESTELLUNG
+WHERE Status = 'OFFEN'
+   AND Gesamtbetrag >= 100.00;
+
+SELECT * FROM BESTELLUNG
+WHERE Status != 'OFFEN' AND Status != 'VERSENDET';
+
+SELECT *
+FROM BESTELLUNG
+WHERE Status <> 'OFFEN'
+   AND Status <> 'VERSENDET';
+
+SELECT *
+FROM KUNDE
+WHERE Ort = 'Köln' OR Ort = 'Bonn';
+
+SELECT *
+FROM KUNDE
+WHERE Ort = 'Köln'
+   AND Name LIKE 'M%';
+
+SELECT *
+FROM KUNDE
+WHERE EMail IS NULL;
+
+SELECT *
+FROM KUNDE
+WHERE EMail IS NOT NULL;
+
+SELECT COUNT(*) FROM BESTELLUNG;
+
+SELECT SUM(Gesamtbetrag) AS Summe
+FROM BESTELLUNG;
+
+SELECT AVG(Gesamtbetrag) AS Durchschnitt
+FROM BESTELLUNG;
+
+SELECT MIN(Gesamtbetrag) AS Minimum,
+         MAX(Gesamtbetrag) AS Maximum
+FROM BESTELLUNG;
+
+SELECT Status, COUNT(*) AS Anzahl
+FROM BESTELLUNG
+GROUP BY Status;
+
+SELECT Status, SUM(Gesamtbetrag) AS Summe
+FROM BESTELLUNG
+GROUP BY Status;
+
+SELECT Status, COUNT(*) AS Anzahl
+FROM BESTELLUNG
+GROUP BY Status
+ORDER BY Anzahl DESC;
+
+SELECT Status, SUM(Gesamtbetrag) AS Gesamtsumme
+FROM BESTELLUNG
+WHERE Gesamtbetrag >= 20.00
+GROUP BY Status
+HAVING SUM(Gesamtbetrag) >= 100.00;

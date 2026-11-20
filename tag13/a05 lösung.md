@@ -141,6 +141,8 @@ WHERE Ort = 'Köln'
 
 Mit den Beispieldaten wird Mira Hansen ausgegeben.
 
+Erklärung: LIKE nutzt man für Textmuster. Das Prozentzeichen % ist ein Joker für „beliebig viele Zeichen dahinter“ (auch gar keine). 'M%' findet also „Mira Hansen“, „Max“ oder einfach nur „M“
+
 3. Geben Sie Kunden aus, deren E-Mail-Adresse fehlt.
 
 **Lösung**  
@@ -183,6 +185,8 @@ ORDER BY Gesamtbetrag DESC;
 ```
 
 Wenn bei gleichem Gesamtbetrag-Wert zusätzlich nach BestellID aufsteigende Sortierunf gewünscht ist:
+
+Erklärung: DESC steht für descending (absteigend, also vom größten zum kleinsten Wert). Aufsteigend wäre ASC (ascending).
 
 ```sql
 SELECT *
@@ -328,3 +332,13 @@ Ausgegeben wird nur OFFEN mit Summe 320.00.
 - `GROUP BY Status` fasst die verbleibenden Zeilen je Status zusammen.
 - `HAVING SUM(Gesamtbetrag) >= 100.00` behält nur Gruppen, deren Summe mindestens 100 beträgt.
 - `SUM(Gesamtbetrag)` ist ein Aggregat über eine Gruppe. Die Gruppen existieren erst nach der Gruppierung; deshalb gehört diese Bedingung in HAVING, nicht als gewöhnlicher Zeilenfilter in WHERE.
+
+ODER:
+
+WHERE (1. Türsteher – filtert einzelne Zeilen vor dem Gruppieren):Zuerst wirft WHERE Gesamtbetrag >= 20.00 alle einzelnen Bestellungen raus, die zu klein sind (in unseren Beispieldaten fliegt Bestellung 1006 mit 0,00 € sofort raus).
+GROUP BY (Stapel bilden):Die übrigen 5 Bestellungen werden nach Status in drei Stapel sortiert (OFFEN, VERSENDET, STORNIERT).
+SUM (Rechnen pro Stapel):Für jeden Stapel wird der Gesamtbetrag addiert:
+OFFEN: 120 + 80 + 120 = 320,00
+VERSENDET: 45,00
+STORNIERT: 25,00
+HAVING (2. Türsteher – filtert fertige Gruppen nach dem Rechnen):Erst jetzt prüft HAVING SUM(Gesamtbetrag) >= 100.00, welche Stapel das Ziel erreichen. VERSENDET (45) und STORNIERT (25) fliegen raus – übrig bleibt im Endergebnis nur die Gruppe OFFEN mit 320,00.
