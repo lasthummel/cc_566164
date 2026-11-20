@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quick Sort – Interaktive Visualisierung</title>
+<style>
+:root{color-scheme:light;--bg:#f2f5f9;--panel:#fff;--ink:#18283b;--muted:#52647a;--line:#dce3ec;--blue:#255bb5;--orange:#9a4900;--green:#176746;--purple:#67449c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+main{max-width:1200px;margin:auto;padding:24px}
+h1{font-size:clamp(1.8rem,4vw,2.7rem);margin:0}h2{font-size:1.1rem;margin:0 0 12px}
+p{margin:8px 0}.intro,.hint,.small,footer{color:var(--muted)}.hint,.small,footer{font-size:.87rem}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.field{flex:1;min-width:220px}
+label{font-weight:600}input,select,button{font:inherit}input[type=text],select{width:100%;padding:9px 12px;border:1px solid #a9b7c8;border-radius:8px;background:white;color:var(--ink)}
+button{border:1px solid #a9b7c8;border-radius:8px;padding:9px 13px;background:white;color:var(--ink);cursor:pointer;font-weight:600}
+button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #73a5ff;outline-offset:3px}
+input[type=range]{accent-color:var(--blue);width:100%}
+#error{color:#a32727;min-height:1.4em;margin:4px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:18px}
+.stat{background:#f5f7fa;border-radius:9px;padding:10px 13px}.stat strong{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums}.stat span{font-size:.8rem;color:var(--muted)}
+.array{display:flex;gap:8px;align-items:stretch;justify-content:safe center;overflow-x:auto;padding:14px 0;min-height:100px}
+.cell{flex:1 0 45px;max-width:100px;text-align:center;min-width:0}
+.value{display:flex;align-items:center;justify-content:center;height:64px;background:#edf2f8;border:2px solid #a9b7c8;border-radius:9px;font-size:clamp(1rem,2vw,1.65rem);font-weight:700;font-variant-numeric:tabular-nums}
+.index{color:var(--muted);font-size:.8rem}
+.cell.outside .value{background:#f6f7f9;color:#7b8795;border-color:#e3e8ee}
+.cell.compare .value{background:#e0edff;border-color:var(--blue);color:#17458e}
+.cell.swap .value{background:#fff0d6;border-color:#d97706;color:var(--orange)}
+.cell.pivot .value{background:#eee2ff;border-color:var(--purple);color:#50317b}
+.cell.pivot.compare .value{outline:3px solid var(--blue);outline-offset:2px}
+.cell.fixed .value{background:#dff5e8;border-color:#29865e;color:var(--green)}
+.legend{display:flex;gap:15px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;border:1px solid currentColor;vertical-align:-1px;background:#edf2f8}
+.legend .c::before{background:#e0edff;color:var(--blue)}.legend .s::before{background:#fff0d6;color:#d97706}
+.legend .p::before{background:#eee2ff;color:var(--purple)}.legend .f::before{background:#dff5e8;color:var(--green)}
+.status{background:#f5f7fa;border-left:4px solid var(--blue);padding:12px 15px;border-radius:5px;margin:16px 0;min-height:78px}
+.status strong{display:block}.controls{justify-content:center}.timeline{margin:18px 0 4px}
+.split{display:grid;grid-template-columns:1.15fr 1fr;gap:16px}.split .panel{min-width:0}
+pre{margin:0;overflow:auto;background:#f5f7fa;border-radius:8px;padding:10px;font:14px/1.65 ui-monospace,Consolas,monospace}
+.code-line{display:block;min-width:max-content;padding:0 6px;border-left:3px solid transparent}
+.code-line.active{background:#dceaff;border-left-color:var(--blue);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px;vertical-align:top}th{color:var(--muted)}.scroll{overflow:auto;max-height:320px}
+@media(max-width:760px){main{padding:12px}.panel{padding:14px}.split{grid-template-columns:1fr}.array{justify-content:flex-start}.cell{flex-basis:44px}.value{height:54px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>Quick Sort</h1><p class="intro">Lomuto-Partitionierung · Schritt für Schritt nachvollziehen · IHK-Vorbereitung Anwendungsentwicklung · KI generiert</p></header>
+<section class="panel" aria-label="Eingabedaten">
+<div class="row">
+<div class="field"><label for="values">Array (ganze Zahlen, durch Kommas getrennt)</label><input id="values" type="text" value="7, 3, 5, 2, 4" maxlength="200" spellcheck="false"></div>
+<div class="field"><label for="mode">Algorithmusvariante</label><select id="mode"><option value="classic">Klassisch – wie in A1–A3</option><option value="optimized">Ohne Selbsttausch – A4</option></select></div>
+<button id="apply" class="primary">Übernehmen</button>
+</div>
+<p class="hint">0 bis 12 ganze Zahlen zwischen −999 und 999. Das letzte Element jedes Teilbereichs ist das Pivot. Ein leeres Eingabefeld entspricht einem leeren Array.</p>
+<div class="row" id="examples"><button data-values="7, 3, 5, 2, 4">Aufgabe A2</button><button data-values="1, 2, 3, 4">Sortiert</button><button data-values="4, 3, 2, 1">Umgekehrt</button><button data-values="3, -2, 3, 0">Duplikate / negativ</button><button id="random">Zufallswerte</button></div>
+<p id="error" role="alert"></p>
+</section>
+<section class="panel" aria-label="Sortiervisualisierung">
+<div class="stats">
+<div class="stat"><span>Teilbereich [tief, hoch]</span><strong id="bounds">–</strong></div>
+<div class="stat"><span>Pivot-Wert</span><strong id="pivot">–</strong></div>
+<div class="stat"><span>Index i</span><strong id="i">–</strong></div>
+<div class="stat"><span>Index j</span><strong id="j">–</strong></div>
+<div class="stat"><span>Rekursionstiefe</span><strong id="depth">0</strong></div>
+<div class="stat"><span>Elementvergleiche</span><strong id="comparisons">0</strong></div>
+<div class="stat"><span>Tauschblöcke</span><strong id="swaps">0</strong></div>
+</div>
+<div id="array" class="array" role="img" aria-label="Array"></div>
+<div class="legend"><span>Außerhalb des Teilbereichs</span><span class="c">Vergleich</span><span class="s">Tauschblock</span><span class="p">Pivot</span><span class="f">Endgültige Position</span></div>
+<div class="status" aria-live="polite"><strong id="phase"></strong><span id="explanation"></span></div>
+<div class="row controls">
+<button id="reset" title="Zum Ausgangszustand">⏮ Anfang</button><button id="prev">← Zurück</button>
+<button id="play" class="primary">▶ Abspielen</button><button id="next">Weiter →</button>
+<button id="passNext">Partitionierung beenden</button><button id="end">Ende ⏭</button>
+</div>
+<div class="timeline"><label for="step">Schritt <output id="stepLabel"></output></label><input id="step" type="range" min="0" max="0" value="0" step="1"></div>
+<div class="row"><label for="speed">Tempo</label><input id="speed" type="range" min="1" max="5" value="3" step="1" style="width:140px"><span id="speedLabel" class="small"></span></div>
+</section>
+<div class="split">
+<section class="panel"><h2>Pseudocode</h2><pre id="code" aria-label="Pseudocode des Algorithmus"></pre><p class="hint">Die Hervorhebung markiert die aktuelle Aktion. Bei jeder Rekursion werden dieselben Funktionen mit neuen Teilbereichsgrenzen aufgerufen.</p></section>
+<section class="panel"><h2>Protokoll der Partitionierungen</h2>
+<div class="scroll"><table><thead><tr><th>Nr.</th><th>tief</th><th>hoch</th><th>Pivot</th><th>Pivotindex</th><th>Arrayzustand</th><th>Vergl.</th><th>Tausch</th></tr></thead><tbody id="history"></tbody></table></div>
+<p class="hint">Zähler pro abgeschlossener Partitionierung, nicht kumuliert. Klassisch zählen auch Selbsttausche. Die linke Rekursion wird vor der rechten abgearbeitet.</p>
+<p><strong>Prinzip:</strong> Nach jeder Partitionierung steht das Pivot an seiner endgültigen Position. Links stehen kleinere, rechts größere oder gleiche Werte.</p><p id="complexity" class="small"></p>
+</section>
+</div>
+<footer>Eigenständige Offline-Demonstration · Keine externen Bibliotheken · Aufsteigende In-place-Sortierung mit zusätzlichem Rekursionsspeicher</footer>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const delays=[1600,1050,650,350,150];
+const fmt=a=>"["+a.join(", ")+"]";
+function codeLines(optimized){
+  return [
+    ["entry","FUNKTION quickSort(werte : Ganzzahl[]) : void"],
+    ["entryCall","    quickSortBereich(werte, 0, LÄNGE(werte) - 1)"],
+    ["entryEnd","ENDE FUNKTION"],["blank",""],
+    ["rec","FUNKTION quickSortBereich(werte : Ganzzahl[], tief : Ganzzahl, hoch : Ganzzahl) : void"],
+    ["base","    WENN tief >= hoch DANN"],
+    ["return","        RÜCKGABE"],
+    ["baseEnd","    ENDE WENN"],
+    ["partCall","    pivotIndex = partitioniere(werte, tief, hoch)"],
+    ["left","    quickSortBereich(werte, tief, pivotIndex - 1)"],
+    ["right","    quickSortBereich(werte, pivotIndex + 1, hoch)"],
+    ["recEnd","ENDE FUNKTION"],["blank2",""],
+    ["part","FUNKTION partitioniere(werte : Ganzzahl[], tief : Ganzzahl, hoch : Ganzzahl) : Ganzzahl"],
+    ["pivot","    pivot = werte[hoch]"],
+    ["init","    i = tief - 1"],["loop","    FÜR j VON tief BIS hoch - 1"],
+    ["compare","        WENN werte[j] < pivot DANN"],
+    ["increment","            i = i + 1"],
+    ...(optimized?[["check1","            WENN i != j DANN"]]:[]),
+    ["swap1",(optimized?"                ":"            ")+"temp = werte[i]"],
+    ["swap2",(optimized?"                ":"            ")+"werte[i] = werte[j]"],
+    ["swap3",(optimized?"                ":"            ")+"werte[j] = temp"],
+    ...(optimized?[["check1End","            ENDE WENN"]]:[]),
+    ["compareEnd","        ENDE WENN"],["loopEnd","    ENDE FÜR"],["blank3",""],
+    ...(optimized?[["check2","    WENN i + 1 != hoch DANN"]]:[]),
+    ["pivotSwap1",(optimized?"        ":"    ")+"temp = werte[i + 1]"],
+    ["pivotSwap2",(optimized?"        ":"    ")+"werte[i + 1] = werte[hoch]"],
+    ["pivotSwap3",(optimized?"        ":"    ")+"werte[hoch] = temp"],
+    ...(optimized?[["check2End","    ENDE WENN"]]:[]),
+    ["pivotReturn","    RÜCKGABE i + 1"],["partEnd","ENDE FUNKTION"]
+  ];
+}
+function buildTrace(input,optimized){
+  const a=input.slice(),frames=[],fixed=new Set();
+  let comparisons=0,swaps=0,partitionCount=0;
+  function add(type,lines,phase,explanation,details={}){
+    frames.push({type,lines,phase,explanation,values:a.slice(),fixed:[...fixed],comparisons,swaps,
+      lo:null,hi:null,pivot:null,i:null,j:null,depth:0,marked:[],...details});
+  }
+  add("start",["entryCall"],"Ausgangszustand",a.length<2?"Weniger als zwei Elemente: keine Partitionierung erforderlich.":"Der erste Aufruf betrachtet das gesamte Array.");
+  function sort(lo,hi,depth){
+    const scope={lo,hi,depth};
+    add("call",["rec","base"],"Rekursiver Aufruf","quickSortBereich(werte, "+lo+", "+hi+").",{...scope});
+    if(lo>=hi){
+      if(lo===hi&&lo>=0&&lo<a.length)fixed.add(lo);
+      add("base",["base","return"],"Rekursionsabbruch",
+        "Der Teilbereich enthält "+(lo===hi?"ein Element.":"kein Element.")+" Keine Partitionierung.",{...scope});
+      return;
+    }
+    const pivot=a[hi],c0=comparisons,s0=swaps;
+    let i=lo-1;
+    add("startPartition",["partCall","pivot","init"],"Partitionierung beginnt",
+      "Pivot = "+pivot+" (letztes Element). i = "+i+". j läuft von "+lo+" bis "+(hi-1)+".",{...scope,pivot,i});
+    for(let j=lo;j<hi;j++){
+      const current=a[j],smaller=current<pivot;
+      comparisons++;
+      add("compare",["loop","compare"],"Elementvergleich",
+        current+" < "+pivot+" ist "+(smaller?"WAHR. i wird erhöht.":"FALSCH. i bleibt unverändert."),{...scope,pivot,i,j,marked:[j]});
+      if(smaller){
+        i++;
+        add("increment",["increment"],"Grenze für kleinere Werte verschieben",
+          "i = "+i+". "+(i===j?"Ein Selbsttausch wäre ausreichend.":"Die Werte an i und j werden vertauscht."),{...scope,pivot,i,j,marked:[i,j]});
+        if(!optimized||i!==j){
+          const left=a[i],right=a[j];
+          const temp=a[i];a[i]=a[j];a[j]=temp;swaps++;
+          add("swap",["swap1","swap2","swap3"],"Tauschblock ausgeführt",
+            i===j?"Selbsttausch bei Index "+i+" (zählt als Tauschblock).":
+              "Werte "+left+" und "+right+" an Index "+i+" und "+j+" vertauscht.",
+            {...scope,pivot,i,j,marked:[i,j]});
+        }else{
+          add("skip",["check1"],"Selbsttausch vermieden",
+            "i == j == "+i+". Der Tauschblock wird in A4 übersprungen.",
+            {...scope,pivot,i,j,marked:[i]});
+        }
+      }
+    }
+    const pos=i+1;
+    add("pivotStep",["loopEnd","pivotSwap1"],"Pivot positionieren",
+      "Das Pivot wird an Index "+pos+" platziert.",
+      {...scope,pivot,i,marked:[pos,hi]});
+    if(!optimized||pos!==hi){
+      const left=a[pos],right=a[hi];
+      const temp=a[pos];a[pos]=a[hi];a[hi]=temp;swaps++;
+      add("pivotSwap",["pivotSwap1","pivotSwap2","pivotSwap3"],"Pivot-Tauschblock ausgeführt",
+        pos===hi?"Selbsttausch des Pivots bei Index "+hi+".":
+          "Werte "+left+" und "+right+" an Index "+pos+" und "+hi+" vertauscht.",
+        {...scope,pivot,i,marked:[pos,hi]});
+    }else{
+      add("skipPivot",["check2"],"Pivot-Selbsttausch vermieden",
+        "Pivot steht bereits an Index "+pos+"; der Tauschblock entfällt.",
+        {...scope,pivot,i,marked:[pos]});
+    }
+    fixed.add(pos);partitionCount++;
+    add("partitionEnd",["pivotReturn"],"Partitionierung "+partitionCount+" abgeschlossen",
+      "Pivotindex "+pos+" ist endgültig. Zuerst wird der linke, dann der rechte Teilbereich bearbeitet.",
+      {...scope,pivot,i,pivotIndex:pos,partitionNumber:partitionCount,passComparisons:comparisons-c0,
+        passSwaps:swaps-s0});
+    add("leftCall",["left"],"Linken Teilbereich aufrufen",
+      "Die linke Rekursion erhält ["+lo+", "+(pos-1)+"].",{...scope,pivot,i,pivotIndex:pos});
+    sort(lo,pos-1,depth+1);
+    add("rightCall",["right"],"Rechten Teilbereich aufrufen",
+      "Die rechte Rekursion erhält ["+(pos+1)+", "+hi+"].",{...scope,pivot,i,pivotIndex:pos});
+    sort(pos+1,hi,depth+1);
+  }
+  sort(0,a.length-1,0);
+  for(let k=0;k<a.length;k++)fixed.add(k);
+  add("done",["recEnd","entryEnd"],"Sortierung abgeschlossen",
+    "Das Array ist aufsteigend sortiert. Insgesamt "+comparisons+" Elementvergleiche und "+swaps+" Tauschblöcke.");
+  return frames;
+}
+function parseValues(raw){
+  if(!raw.trim())return [];
+  const parts=raw.split(",").map(x=>x.trim());
+  if(parts.length>12||parts.some(x=>!/^[-+]?\d+$/.test(x)))
+    throw Error("Bitte höchstens 12 ganze Zahlen, getrennt durch Kommas, eingeben.");
+  const values=parts.map(Number);
+  if(values.some(x=>!Number.isSafeInteger(x)||Math.abs(x)>999))
+    throw Error("Alle Werte müssen zwischen −999 und 999 liegen.");
+  return values;
+}
+let frames=[],cursor=0,timer=null,activeMode=false,activeInput=[];
+function pause(){
+  if(timer!==null)clearInterval(timer);
+  timer=null;$("play").textContent="▶ Abspielen";
+}
+function apply(){
+  let input;
+  try{input=parseValues($("values").value)}
+  catch(e){pause();$("error").textContent=e.message;return;}
+  pause();$("error").textContent="";activeInput=input;activeMode=$("mode").value==="optimized";
+  frames=buildTrace(input,activeMode);cursor=0;$("step").max=frames.length-1;render();
+}
+function render(){
+  const f=frames[cursor];
+  $("bounds").textContent=f.lo===null?"–":f.lo+" … "+f.hi;
+  $("pivot").textContent=f.pivot??"–";$("i").textContent=f.i??"–";
+  $("j").textContent=f.j??"–";$("depth").textContent=f.depth;
+  $("comparisons").textContent=f.comparisons;$("swaps").textContent=f.swaps;
+  $("array").replaceChildren();
+  $("array").setAttribute("aria-label","Array: "+fmt(f.values));
+  if(!f.values.length)$("array").textContent="[] – leeres Array";
+  f.values.forEach((v,k)=>{
+    const cell=document.createElement("div");cell.className="cell";
+    if(f.fixed.includes(k))cell.classList.add("fixed");
+    else if(f.lo!==null&&(k<f.lo||k>f.hi))cell.classList.add("outside");
+    if(!f.fixed.includes(k)){
+      if(k===f.hi&&f.type!=="partitionEnd")cell.classList.add("pivot");
+      if(f.type==="compare"&&f.marked.includes(k))cell.classList.add("compare");
+      if(["swap","pivotSwap","pivotStep","skip","skipPivot"].includes(f.type)&&f.marked.includes(k))
+        cell.classList.add(f.type==="swap"||f.type==="pivotSwap"?"swap":"compare");
+    }
+    const val=document.createElement("div");val.className="value";val.textContent=v;
+    const index=document.createElement("div");index.className="index";index.textContent="["+k+"]";
+    cell.append(val,index);$("array").append(cell);
+  });
+  $("phase").textContent=f.phase;$("explanation").textContent=f.explanation;
+  $("step").value=cursor;$("stepLabel").textContent=cursor+" / "+(frames.length-1);
+  $("code").replaceChildren();
+  codeLines(activeMode).forEach(([key,line])=>{
+    const span=document.createElement("span");
+    span.className="code-line"+(f.lines.includes(key)?" active":"");
+    span.textContent=line||" ";$("code").append(span);
+  });
+  $("history").replaceChildren();
+  function row(values){
+    const tr=document.createElement("tr");
+    values.forEach(v=>{const td=document.createElement("td");td.textContent=String(v);tr.append(td)});
+    $("history").append(tr);
+  }
+  row(["Start","–","–","–","–",fmt(activeInput),"–","–"]);
+  frames.slice(0,cursor+1).filter(x=>x.type==="partitionEnd").forEach(x=>
+    row([x.partitionNumber,x.lo,x.hi,x.pivot,x.pivotIndex,fmt(x.values),x.passComparisons,x.passSwaps]));
+  $("reset").disabled=$("prev").disabled=cursor===0;
+  $("next").disabled=$("end").disabled=$("passNext").disabled=$("play").disabled=cursor===frames.length-1;
+  $("complexity").textContent="Best Case: Θ(n log n), Worst Case: Θ(n²). "+
+    (activeMode?"A4 spart Selbsttausche, ändert aber Pivotpositionen und Elementvergleiche nicht.":
+      "Mit letztem Element als Pivot können sortierte Eingaben stark unausgeglichene Partitionen erzeugen.");
+  if(cursor===frames.length-1)pause();
+}
+function seek(k){pause();cursor=Math.max(0,Math.min(frames.length-1,k));render();}
+function play(){
+  if(timer!==null){pause();return;}
+  if(cursor===frames.length-1)return;
+  $("play").textContent="⏸ Pause";
+  timer=setInterval(()=>{if(cursor<frames.length-1){cursor++;render()}else pause();},
+    delays[Number($("speed").value)-1]);
+}
+$("apply").onclick=apply;
+$("values").onkeydown=e=>{if(e.key==="Enter")apply();};
+$("mode").onchange=apply;
+$("examples").onclick=e=>{const b=e.target.closest("[data-values]");if(b){$("values").value=b.dataset.values;apply();}};
+$("random").onclick=()=>{$("values").value=Array.from({length:7},()=>Math.floor(Math.random()*41)-20).join(", ");apply();};
+$("reset").onclick=()=>seek(0);$("prev").onclick=()=>seek(cursor-1);
+$("next").onclick=()=>seek(cursor+1);$("end").onclick=()=>seek(frames.length-1);
+$("passNext").onclick=()=>{
+  const k=frames.findIndex((f,index)=>index>cursor&&f.type==="partitionEnd");
+  seek(k<0?frames.length-1:k);
+};
+$("step").oninput=()=>seek(Number($("step").value));
+$("play").onclick=play;
+function updateSpeed(){
+  const running=timer!==null;if(running)pause();
+  $("speedLabel").textContent=delays[Number($("speed").value)-1]+" ms / Schritt";
+  if(running)play();
+}
+$("speed").oninput=updateSpeed;updateSpeed();apply();
+</script>
+</body>
+</html>
