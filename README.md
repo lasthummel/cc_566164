@@ -4,6 +4,12 @@
 - SQL-JOINs, Unterabfragen und Datenmanipulation
 - Dateien im Ordner tag14/
 
+- Aufgaben nach 13:30 Uhr
+    - a02.md
+    - design patterns aufgabe.md
+    - sort-insertionsort.md
+    - search-binarysearch.md
+
 ## 19.11
 - Relationale Datenmodelle und Normalisierung
 - SQL-Datenabfragen
