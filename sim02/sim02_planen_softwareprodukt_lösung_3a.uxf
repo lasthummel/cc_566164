@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>20</x><y>20</y><w>1480</w><h>1200</h>
+    </coordinates>
+    <panel_attributes>title=Ticketabschluss – UML-Sequenzdiagramm (Musterlösung)
+autoTick=false
+obj=Technikerin~t
+obj=Weboberfläche~w
+obj=API~a
+obj=TicketService~s
+obj=TicketRepository~r
+
+t-&gt;&gt;&gt;w : abschliessen(42, bericht)
+tick=2
+w-&gt;&gt;&gt;a : POST /tickets/42/abschluss {bericht}
+tick=2
+a-&gt;&gt;&gt;s : abschliessen(42, bericht)
+tick=2
+s-&gt;&gt;&gt;r : finde(42)
+tick=2
+r.&gt;s : Ticket(status)
+tick=2
+combinedFragment=alt~abschluss t r
+s:[status = IN_ARBEIT UND Bericht nicht leer]
+tick=2
+s-&gt;&gt;&gt;r : speichere(ERLEDIGT, bericht)
+tick=2
+r.&gt;s : gespeichert
+tick=2
+s.&gt;a : erfolgreich
+tick=2
+a.&gt;w : HTTP 200
+tick=2
+w.&gt;t : Bestätigung
+tick=2
+..=abschluss
+s:[sonst]
+tick=2
+s.&gt;a : fachlicher Konflikt
+tick=2
+a.&gt;w : HTTP 409
+tick=2
+w.&gt;t : Fehlermeldung
+--=abschluss</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
