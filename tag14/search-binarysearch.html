@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Binäre Suche (iterativ) – Interaktive Visualisierung</title>
+<style>
+:root{color-scheme:light;--bg:#f2f5f9;--panel:#fff;--ink:#18283b;--muted:#52647a;--line:#dce3ec;--blue:#255bb5;--orange:#9a4900;--green:#176746}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+main{max-width:1150px;margin:auto;padding:24px}
+h1{font-size:clamp(1.8rem,4vw,2.7rem);margin:0}h2{font-size:1.15rem;margin:0 0 12px}
+p{margin:8px 0}.intro,.hint,.small,footer{color:var(--muted)}.hint,.small,footer{font-size:.88rem}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+.row{display:flex;flex-wrap:wrap;align-items:end;gap:10px}.field{flex:1;min-width:210px}.target{flex:0 0 115px}
+label{font-weight:600;display:block;margin:0 0 4px}
+input,select,button{font:inherit}
+input[type=text],input[type=number],select{width:100%;padding:9px 12px;border:1px solid #a9b7c8;border-radius:8px;background:white;color:var(--ink)}
+button{border:1px solid #a9b7c8;border-radius:8px;padding:9px 13px;background:white;color:var(--ink);cursor:pointer;font-weight:600}
+button.primary{background:var(--blue);color:white;border-color:var(--blue)}
+button:disabled{opacity:.42;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #73a5ff;outline-offset:2px}
+input[type=range]{accent-color:var(--blue)}
+#error{min-height:1.35em;color:#a32727}
+.preset{align-items:center;margin:12px 0}.preset button{font-size:.85rem}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.stat{background:#f5f7fa;border-radius:9px;padding:10px 12px}
+.stat strong{display:block;font-size:1.4rem;font-variant-numeric:tabular-nums}
+.stat span{font-size:.77rem;color:var(--muted)}
+.array{display:flex;gap:8px;justify-content:safe center;align-items:stretch;overflow-x:auto;padding:12px 0;min-height:104px}
+.cell{min-width:46px;flex:1 0 46px;max-width:92px;text-align:center}
+.value{height:64px;display:flex;align-items:center;justify-content:center;border:2px solid #a9b7c8;border-radius:9px;background:#edf2f8;font-size:clamp(1rem,2vw,1.55rem);font-weight:700}
+.index{font-size:.8rem;color:var(--muted)}.cell.outside .value{background:#f7f8fa;border-color:#e2e7ed;color:#929ba7}
+.cell.middle .value{background:#e0edff;border-color:var(--blue);color:#17458e}
+.cell.found .value{background:#dff5e8;border-color:#29865e;color:var(--green)}
+.cell.discard .value{background:#fff0d6;border-color:#d97706;color:var(--orange)}
+.cell.candidate .value{outline:3px solid #29865e;outline-offset:2px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;margin-right:5px;border:1px solid #a9b7c8;border-radius:3px;vertical-align:-1px;background:#edf2f8}
+.legend .middle::before{background:#e0edff;border-color:var(--blue)}
+.legend .excluded::before{background:#f7f8fa;border-color:#e2e7ed}
+.legend .found::before{background:#dff5e8;border-color:#29865e}
+.legend .discard::before{background:#fff0d6;border-color:#d97706}
+.status{background:#f5f7fa;border-left:4px solid var(--blue);padding:12px 15px;border-radius:5px;margin:16px 0;min-height:82px}
+.status strong{display:block}.controls{justify-content:center;align-items:center}
+.timeline{margin:18px 0 12px}.timeline input{width:100%}
+.speed{align-items:center}.speed input{width:155px}
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:16px}.split .panel{min-width:0}
+pre{margin:0;overflow:auto;background:#f5f7fa;border-radius:8px;padding:10px;font:14px/1.65 ui-monospace,Consolas,monospace}
+.code-line{display:block;min-width:max-content;padding:0 6px;border-left:3px solid transparent}
+.code-line.active{background:#dceaff;border-left-color:var(--blue);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted)}.scroll{overflow:auto;max-height:400px}
+@media(max-width:760px){main{padding:12px}.panel{padding:14px}.split{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.array{justify-content:flex-start}.value{height:54px}.target{flex:1 1 105px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>Binäre Suche (iterativ)</h1><p class="intro">Suchalgorithmus Schritt für Schritt nachvollziehen · IHK-Vorbereitung Anwendungsentwicklung · KI-generiert</p></header>
+<section class="panel" aria-label="Eingabedaten">
+<div class="row">
+<div class="field"><label for="values">Sortiertes Array (Komma-getrennte ganze Zahlen)</label><input id="values" type="text" value="2, 3, 4, 5, 7" spellcheck="false" maxlength="200"></div>
+<div class="field target"><label for="target">Gesucht</label><input id="target" type="number" value="7" step="1" min="-999" max="999"></div>
+<div class="field"><label for="mode">Variante</label><select id="mode"><option value="classic">Klassisch – A1 bis A3</option><option value="first">Erstes Vorkommen – A4</option></select></div>
+<button class="primary" id="apply">Übernehmen</button>
+</div>
+<p class="hint">0 bis 12 aufsteigend sortierte ganze Zahlen von −999 bis 999, Duplikate erlaubt. Das leere Eingabefeld bedeutet ein leeres Array. Unsortierte Eingaben werden zurückgewiesen. Die Suche verändert das Array nicht.</p>
+<div class="row preset" id="examples">
+<button data-values="2,3,4,5,7" data-target="7">A2 a: Treffer</button>
+<button data-values="2,3,4,5,7" data-target="6">A2 b: Kein Treffer</button>
+<button data-values="-2,0,3,3" data-target="3">A2 b: Duplikate</button>
+<button data-values="1,2,2,2,4" data-target="2" data-mode="first">A4: Erstes Vorkommen</button>
+<button data-values="" data-target="5">Leer</button>
+<button id="random">Zufallswerte</button>
+</div>
+<p id="error" role="alert"></p>
+</section>
+<section class="panel" aria-label="Visualisierung der Suche">
+<div class="stats">
+<div class="stat"><span>links</span><strong id="left">–</strong></div>
+<div class="stat"><span>rechts</span><strong id="right">–</strong></div>
+<div class="stat"><span>mitte</span><strong id="middle">–</strong></div>
+<div class="stat"><span>Elementprüfungen</span><strong id="count">0</strong></div>
+<div class="stat"><span>Ergebnis</span><strong id="result">–</strong></div>
+</div>
+<div id="array" class="array" role="img" aria-label="Visualisierung des Arrays"></div>
+<div class="legend">
+<span>Aktueller Suchbereich</span><span class="middle">Geprüfte Mitte</span>
+<span class="excluded">Ausgeschlossen</span><span class="discard">Gerade ausgeschlossen</span>
+<span class="found">Treffer / Kandidat</span>
+</div>
+<div class="status" aria-live="polite"><strong id="phase"></strong><span id="description"></span></div>
+<div class="row controls">
+<button id="reset">⏮ Anfang</button><button id="prev">← Zurück</button>
+<button class="primary" id="play">▶ Abspielen</button><button id="next">Weiter →</button>
+<button id="iteration">Durchlauf beenden</button><button id="end">Ende ⏭</button>
+</div>
+<div class="timeline"><label for="step">Schritt <output id="stepLabel"></output></label><input id="step" type="range" min="0" max="0" value="0"></div>
+<div class="row speed"><label for="speed">Tempo</label><input id="speed" type="range" min="1" max="5" value="3"><span id="speedLabel" class="small"></span></div>
+</section>
+<div class="split">
+<section class="panel"><h2>Pseudocode</h2><pre id="code" aria-label="Pseudocode mit aktueller Zeile"></pre><p class="hint">Die Markierung zeigt den zur aktuellen Aktion gehörenden Pseudocode. Für A4 wird der erweiterte Code angezeigt.</p></section>
+<section class="panel"><h2>Protokoll der Suchdurchläufe</h2>
+<div class="scroll"><table><thead><tr><th>Nr.</th><th>links / rechts</th><th>mitte / Wert</th><th>Entscheidung</th></tr></thead><tbody id="history"></tbody></table></div>
+<p id="complexity" class="small"></p>
+</section>
+</div>
+<footer>Offline einsetzbar · Keine externen Bibliotheken · Binäre Suche setzt sortierte Daten voraus · Ein Elementvergleich pro Schleifendurchlauf gemäß Aufgabenregel</footer>
+</main>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+let frames = [], cursor = 0, timer = null, appliedMode = "classic";
+const delays = [1700,1150,750,420,200];
+const fmt = a => "[" + a.join(", ") + "]";
+function parseArray(s) {
+  if (!s.trim()) return [];
+  const parts = s.split(",").map(x => x.trim());
+  if (parts.length > 12 || parts.some(x => !/^[+-]?\d+$/.test(x))) throw Error("Bitte maximal 12 ganze Zahlen eingeben, durch Kommas getrennt.");
+  const a = parts.map(Number);
+  if (a.some(x => !Number.isSafeInteger(x) || x < -999 || x > 999)) throw Error("Alle Arraywerte müssen ganze Zahlen zwischen -999 und 999 sein.");
+  if (a.some((x,i) => i > 0 && x < a[i-1])) throw Error("Die Eingabe muss aufsteigend sortiert sein. Bitte zuerst sortieren.");
+  return a;
+}
+function parseTarget(s) {
+  if (!/^[+-]?\d+$/.test(s.trim())) throw Error("Bitte einen ganzzahligen Suchwert eingeben.");
+  const n = Number(s);
+  if (!Number.isSafeInteger(n) || n < -999 || n > 999) throw Error("Der Suchwert muss zwischen -999 und 999 liegen.");
+  return n;
+}
+function buildTrace(values, sought, first) {
+  const a = values.slice(), trace = [];
+  let l = 0, r = a.length-1, m = null, checked = 0, iteration = 0, answer = null, candidate = -1;
+  function add(type, title, description, lines, extra = {}) {
+    trace.push({type,title,description,lines,l,r,m,checked,iteration,answer,candidate,
+      discarded:[],...extra});
+  }
+  add("start","Ausgangszustand",a.length ? "Die Suche beginnt im gesamten sortierten Array." : "Das Array ist leer: Es kann keine Elementprüfung stattfinden.",["start"]);
+  while(l <= r) {
+    iteration++;
+    m = l + Math.floor((r-l)/2);
+    checked++;
+    const value = a[m], oldL = l, oldR = r;
+    add("compare","Mittleres Element prüfen",
+      "Durchlauf " + iteration + ": werte[" + m + "] = " + value + " mit " + sought + " vergleichen.",
+      ["while","middle","if"]);
+    if(value === sought) {
+      if(!first) {
+        answer = m;
+        add("hit","Treffer – Suche beendet","Der gesuchte Wert wurde an Index " + m + " gefunden; die Funktion gibt den Index unmittelbar zurück.",["return"],{stop:true});
+        break;
+      }
+      candidate = m;
+      r = m-1;
+      add("hit","Treffer zwischenspeichern","Kandidat " + m + " gespeichert; nur links davon könnte noch ein früherer Treffer liegen. Neue rechte Grenze: " + r + ".",["candidate","moveLeft"],{discarded:range(m,oldR)});
+    } else if(value < sought) {
+      l = m + 1;
+      add("move","Rechten Teilbereich wählen",value + " < " + sought + ": Indizes " + oldL + " bis " + m + " können ausgeschlossen werden. Neue linke Grenze: " + l + ".",["less","moveRight"],{discarded:range(oldL,m)});
+    } else {
+      r = m-1;
+      add("move","Linken Teilbereich wählen",value + " > " + sought + ": Indizes " + m + " bis " + oldR + " können ausgeschlossen werden. Neue rechte Grenze: " + r + ".",["moveLeft"],{discarded:range(m,oldR)});
+    }
+    if(l<=r) m=null;
+  }
+  if(answer===null) answer = first ? candidate : -1;
+  m=null;
+  add("done",answer<0?"Nicht gefunden":"Suche abgeschlossen",
+      answer<0?"Der Suchbereich ist leer. Rückgabe: -1.":"Ergebnisindex: "+answer+". Insgesamt "+checked+" Elementprüfung(en).",
+      ["final"],{stop:true});
+  return trace;
+}
+function range(a,b){return Array.from({length:Math.max(0,b-a+1)},(_,i)=>a+i);}
+function codeLines(first) {
+  const head = [
+    ["head","FUNKTION "+(first?"binaereSucheErstesVorkommen":"binaereSuche")+"(werte : Ganzzahl[], gesucht : Ganzzahl) : Ganzzahl"],
+    ["start","    links = 0"],
+    ["start","    rechts = LÄNGE(werte) - 1"]
+  ];
+  if(first) head.push(["start","    ergebnis = -1"]);
+  head.push(["blank",""],["while","    SOLANGE links <= rechts"],
+    ["middle","        mitte = links + (rechts - links) DIV 2"],
+    ["if","        WENN werte[mitte] == gesucht DANN"]);
+  if(first) head.push(["candidate","            ergebnis = mitte"],["moveLeft","            rechts = mitte - 1"]);
+  else head.push(["return","            RÜCKGABE mitte"]);
+  head.push(["less","        SONST WENN werte[mitte] < gesucht DANN"],
+    ["moveRight","            links = mitte + 1"],
+    ["else","        SONST"],["moveLeft","            rechts = mitte - 1"],
+    ["endif","        ENDE WENN"],["endwhile","    ENDE SOLANGE"],
+    ["final","    RÜCKGABE "+(first?"ergebnis":"-1")],["end","ENDE FUNKTION"]);
+  return head;
+}
+function pause() {
+  if(timer!==null) clearInterval(timer);
+  timer=null;
+  $("play").textContent="▶ Abspielen";
+}
+function apply(){
+  let a, target;
+  try {a=parseArray($("values").value);target=parseTarget($("target").value);}
+  catch(e){$("error").textContent=e.message;pause();return;}
+  pause();$("error").textContent="";
+  appliedMode=$("mode").value;
+  frames=buildTrace(a,target,appliedMode==="first");cursor=0;
+  $("step").max=Math.max(0,frames.length-1);
+  $("array").dataset.values=JSON.stringify(a);
+  render();
+}
+function render(){
+  const f=frames[cursor], a=JSON.parse($("array").dataset.values||"[]");
+  $("left").textContent=f.l;
+  $("right").textContent=f.r;
+  $("middle").textContent=f.m===null?"–":f.m;
+  $("count").textContent=f.checked;
+  $("result").textContent=f.type==="done"||f.type==="hit"&&appliedMode==="classic"?f.answer===null?"–":f.answer:"–";
+  $("phase").textContent=f.title;
+  $("description").textContent=f.description;
+  $("array").replaceChildren();
+  $("array").setAttribute("aria-label","Array: "+fmt(a)+". Suchbereich "+f.l+" bis "+f.r+".");
+  if(!a.length) $("array").textContent="[] – leeres Array";
+  for(let i=0;i<a.length;i++){
+    const cell=document.createElement("div");cell.className="cell";
+    if(i<f.l||i>f.r) cell.classList.add("outside");
+    if(f.discarded.includes(i)) cell.classList.add("discard");
+    if(f.m===i && f.type==="compare") cell.classList.add("middle");
+    if(f.m===i && f.type==="hit") cell.classList.add("found");
+    if(f.candidate===i && appliedMode==="first") cell.classList.add("candidate");
+    if(f.answer===i && f.type==="done") cell.classList.add("found");
+    const val=document.createElement("div");val.className="value";val.textContent=a[i];
+    const idx=document.createElement("div");idx.className="index";idx.textContent="["+i+"]";
+    cell.append(val,idx);$("array").append(cell);
+  }
+  $("code").replaceChildren();
+  const active=new Set(f.lines);
+  for(const [id,line] of codeLines(appliedMode==="first")){
+    const span=document.createElement("span");span.className="code-line"+(active.has(id)?" active":"");
+    span.textContent=line||" ";$("code").append(span);
+  }
+  $("history").replaceChildren();
+  for(let i=0;i<=cursor;i++){
+    const h=frames[i];if(h.type!=="compare")continue;
+    const row=document.createElement("tr");
+    const next=frames[i+1], resultText=next?.type==="hit"?(appliedMode==="first"?"Treffer, links weitersuchen":"Treffer, Rückgabe"):next?.type==="move"?(next.l>h.l?"rechts":"links"):"";
+    for(const s of [h.iteration,h.l+" / "+h.r,h.m+" / "+a[h.m],resultText]){
+      const td=document.createElement("td");td.textContent=String(s);row.append(td);
+    }
+    $("history").append(row);
+  }
+  $("complexity").textContent="Abgeschlossene Prüfungen: "+f.checked+". Worst Case bei konstantem Indexzugriff: O(log n), Zusatzspeicher: O(1).";
+  $("step").value=cursor;
+  $("stepLabel").textContent=(cursor+1)+" / "+frames.length;
+  $("reset").disabled=cursor===0;$("prev").disabled=cursor===0;
+  $("next").disabled=cursor===frames.length-1;
+  $("iteration").disabled=cursor===frames.length-1;
+  $("end").disabled=cursor===frames.length-1;
+  if(cursor===frames.length-1)pause();
+}
+function go(to){pause();cursor=Math.max(0,Math.min(frames.length-1,to));render();}
+function advance(){if(cursor<frames.length-1){cursor++;render();}else pause();}
+$("apply").addEventListener("click",apply);
+$("reset").addEventListener("click",()=>go(0));
+$("prev").addEventListener("click",()=>go(cursor-1));
+$("next").addEventListener("click",()=>go(cursor+1));
+$("end").addEventListener("click",()=>go(frames.length-1));
+$("iteration").addEventListener("click",()=>{
+  const current=frames[cursor].iteration;let next=cursor+1;
+  while(next<frames.length-1&&frames[next].iteration===current)next++;
+  go(next);
+});
+$("step").addEventListener("input",e=>go(Number(e.target.value)));
+$("play").addEventListener("click",()=>{
+  if(timer!==null){pause();return;}
+  if(cursor===frames.length-1)cursor=0;
+  $("play").textContent="⏸ Pause";render();
+  timer=setInterval(advance,delays[Number($("speed").value)-1]);
+});
+$("speed").addEventListener("input",()=>{
+  $("speedLabel").textContent=["Sehr langsam","Langsam","Mittel","Schnell","Sehr schnell"][Number($("speed").value)-1];
+  if(timer!==null){pause();$("play").click();}
+});
+$("examples").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b||b.id==="random")return;
+  $("values").value=b.dataset.values;$("target").value=b.dataset.target;
+  $("mode").value=b.dataset.mode||"classic";apply();
+});
+$("random").addEventListener("click",()=>{
+  const n=3+Math.floor(Math.random()*8);
+  const a=Array.from({length:n},()=>Math.floor(Math.random()*19)-9).sort((x,y)=>x-y);
+  $("values").value=a.join(", ");$("target").value=Math.random()<.65?a[Math.floor(Math.random()*a.length)]:10;
+  $("mode").value="classic";apply();
+});
+$("speedLabel").textContent="Mittel";
+apply();
+</script>
+</body>
+</html>
