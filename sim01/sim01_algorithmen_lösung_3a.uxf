@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.1"><zoom_level>14</zoom_level><element><id>UMLClass</id><coordinates><x>28</x><y>182</y><w>168</w><h>70</h></coordinates><panel_attributes>Behaelter
+--
+-nummer: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>518</x><y>182</y><w>336</w><h>98</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Alarmregel
+--
++istVerletzt(aktuell: double, vorherigeGueltige: double): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>182</x><y>210</y><w>364</w><h>56</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1</panel_attributes><additional_attributes>10;10;240;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>364</y><w>238</w><h>112</h></coordinates><panel_attributes>Messung
+--
+- zeitpunkt: LocalDateTime
+- temperatur: double
+- gueltig: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>98</x><y>238</y><w>56</w><h>154</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>364</y><w>322</w><h>112</h></coordinates><panel_attributes>Grenzwertregel
+--
+-minimum: double
+-maximum: double
++istVerletzt(aktuell: double, vorherigeGueltige: double): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>266</y><w>224</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>756</x><y>364</y><w>350</w><h>112</h></coordinates><panel_attributes>Sprungregel
+--
+-maxSprung: double
++istVerletzt(aktuell: double, vorherigeGueltige: double): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>686</x><y>266</y><w>280</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;180;70</additional_attributes></element></diagram>

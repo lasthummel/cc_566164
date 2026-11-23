@@ -5,11 +5,16 @@
 - Soziale Sicherung und Sozialversicherung
 
 - Optional (WiSo-Aufgaben): Dateien im Ordner tag15/
+> Lösungen im Ordner tag15/
 
 ### Prüfungssimulation:
-- Optional: Dateien im Ordner sim01/
-
+- Zur Auswahl: Dateien im Ordner sim01/
 > Lösungen gibt es kurz vor 13:00 Uhr im Ordner sim01/
+
+- Aufgaben nach 13:30 Uhr
+    - Zur Auswahl: Dateien im Ordner sim02/
+> Lösungen gibt es kurz nach 16:00 Uhr im Ordner sim02/
+
 
 ## 20.11
 - SQL-JOINs, Unterabfragen und Datenmanipulation
