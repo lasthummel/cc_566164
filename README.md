@@ -1,5 +1,16 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 23.11
+- Berufsbildung und Arbeitsrecht
+- Soziale Sicherung und Sozialversicherung
+
+- Optional (WiSo-Aufgaben): Dateien im Ordner tag15/
+
+### Prüfungssimulation:
+- Optional: Dateien im Ordner sim01/
+
+> Lösungen gibt es kurz vor 13:00 Uhr im Ordner sim01/
+
 ## 20.11
 - SQL-JOINs, Unterabfragen und Datenmanipulation
 - Dateien im Ordner tag14/
