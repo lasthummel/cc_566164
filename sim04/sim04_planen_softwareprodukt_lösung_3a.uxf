@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1"><zoom_level>10</zoom_level>
+<element><id>UMLSpecialState</id><coordinates><x>618</x><y>20</y><w>24</w><h>24</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes/></element>
+<element><id>UMLSpecialState</id><coordinates><x>605</x><y>90</y><w>50</w><h>50</h></coordinates><panel_attributes>type=decision</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>510</x><y>200</y><w>240</w><h>60</h></coordinates><panel_attributes>Labor: Vollständigkeit prüfen</panel_attributes><additional_attributes/></element>
+<element><id>UMLSpecialState</id><coordinates><x>605</x><y>300</y><w>50</w><h>50</h></coordinates><panel_attributes>type=decision</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>130</x><y>365</y><w>240</w><h>60</h></coordinates><panel_attributes>Labor: Korrektur anfordern</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>130</x><y>480</y><w>240</w><h>60</h></coordinates><panel_attributes>Außendienst: Angaben ergänzen</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>510</x><y>415</y><w>240</w><h>60</h></coordinates><panel_attributes>Labor: Ergebnisse fachlich prüfen</panel_attributes><additional_attributes/></element>
+<element><id>UMLSpecialState</id><coordinates><x>605</x><y>530</y><w>50</w><h>50</h></coordinates><panel_attributes>type=decision</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>280</x><y>630</y><w>240</w><h>60</h></coordinates><panel_attributes>Labor: Probe sperren</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>280</x><y>735</y><w>240</w><h>60</h></coordinates><panel_attributes>Labor: Außendienst informieren</panel_attributes><additional_attributes/></element>
+<element><id>UMLSpecialState</id><coordinates><x>388</x><y>850</y><w>24</w><h>24</h></coordinates><panel_attributes>type=final</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>750</x><y>630</y><w>240</w><h>60</h></coordinates><panel_attributes>Laborleitung: Probe freigeben</panel_attributes><additional_attributes/></element>
+<element><id>UMLState</id><coordinates><x>750</x><y>735</y><w>240</w><h>60</h></coordinates><panel_attributes>System: Prüfbericht bereitstellen</panel_attributes><additional_attributes/></element>
+<element><id>UMLSpecialState</id><coordinates><x>858</x><y>850</y><w>24</w><h>24</h></coordinates><panel_attributes>type=final</panel_attributes><additional_attributes/></element>
+<element><id>Relation</id><coordinates><x>620</x><y>34</y><w>20</w><h>66</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;56</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>620</x><y>130</y><w>20</w><h>80</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>620</x><y>250</y><w>20</w><h>60</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>240</x><y>315</y><w>375</w><h>60</h></coordinates><panel_attributes>lt=-&gt;
+m1=[nicht vollständig]</panel_attributes><additional_attributes>365;10;10;10;10;50</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>240</x><y>415</y><w>20</w><h>75</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;65</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>40</x><y>105</y><w>575</w><h>415</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>90;405;10;405;10;10;565;10</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>620</x><y>340</y><w>20</w><h>85</h></coordinates><panel_attributes>lt=-&gt;
+m1=[vollständig]</panel_attributes><additional_attributes>10;10;10;75</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>620</x><y>465</y><w>20</w><h>75</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;65</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>390</x><y>545</y><w>225</w><h>95</h></coordinates><panel_attributes>lt=-&gt;
+m1=[nicht bestanden]</panel_attributes><additional_attributes>215;10;10;10;10;85</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>390</x><y>680</y><w>20</w><h>65</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;55</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>390</x><y>785</y><w>20</w><h>75</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;65</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>645</x><y>545</y><w>235</w><h>95</h></coordinates><panel_attributes>lt=-&gt;
+m1=[bestanden]</panel_attributes><additional_attributes>10;10;225;10;225;85</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>860</x><y>680</y><w>20</w><h>65</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;55</additional_attributes></element>
+<element><id>Relation</id><coordinates><x>860</x><y>785</y><w>20</w><h>75</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;10;65</additional_attributes></element>
+</diagram>
