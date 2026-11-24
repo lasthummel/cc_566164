@@ -1,5 +1,12 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+## 24.11
+- Beispiele im Java-Projekt 'demo' im Ordner 'demo/src/main/javaexam/'
+
+### Prüfungssimulation:
+- Zur Auswahl: Dateien im Ordner sim03/
+> Lösungen gibt es kurz vor 13:00 Uhr im Ordner sim03/
+
 ## 23.11
 - Berufsbildung und Arbeitsrecht
 - Soziale Sicherung und Sozialversicherung
