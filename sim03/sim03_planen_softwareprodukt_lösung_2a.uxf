@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram program="umlet" version="15.1">
+<zoom_level>10</zoom_level>
+<element>
+  <id>UMLGeneric</id>
+  <coordinates><x>300</x><y>70</y><w>900</w><h>760</h></coordinates>
+  <panel_attributes>FadenSpur
+halign=left</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLActor</id>
+  <coordinates><x>105</x><y>140</y><w>120</w><h>110</h></coordinates>
+  <panel_attributes>Wareneingang</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLActor</id>
+  <coordinates><x>105</x><y>300</y><w>120</w><h>110</h></coordinates>
+  <panel_attributes>Fertigung</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLActor</id>
+  <coordinates><x>1260</x><y>410</y><w>100</w><h>110</h></coordinates>
+  <panel_attributes>QS</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLActor</id>
+  <coordinates><x>105</x><y>690</y><w>120</w><h>110</h></coordinates>
+  <panel_attributes>Vertrieb</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLUseCase</id>
+  <coordinates><x>430</x><y>160</y><w>300</w><h>70</h></coordinates>
+  <panel_attributes>Materiallieferung erfassen</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLUseCase</id>
+  <coordinates><x>430</x><y>320</y><w>300</w><h>70</h></coordinates>
+  <panel_attributes>Materialverwendung buchen</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLUseCase</id>
+  <coordinates><x>760</x><y>390</y><w>280</w><h>70</h></coordinates>
+  <panel_attributes>Materialmangel melden</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLUseCase</id>
+  <coordinates><x>760</x><y>545</y><w>280</w><h>70</h></coordinates>
+  <panel_attributes>Betroffene Chargen ermitteln</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLUseCase</id>
+  <coordinates><x>760</x><y>690</y><w>280</w><h>70</h></coordinates>
+  <panel_attributes>Rückrufsperre freigeben</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>UMLUseCase</id>
+  <coordinates><x>430</x><y>700</y><w>300</w><h>70</h></coordinates>
+  <panel_attributes>Sperrstatus anzeigen</panel_attributes>
+  <additional_attributes></additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>180</x><y>185</y><w>260</w><h>20</h></coordinates>
+  <panel_attributes>lt=-</panel_attributes>
+  <additional_attributes>10;10;250;10</additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>180</x><y>345</y><w>260</w><h>20</h></coordinates>
+  <panel_attributes>lt=-</panel_attributes>
+  <additional_attributes>10;10;250;10</additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>1030</x><y>415</y><w>260</w><h>55</h></coordinates>
+  <panel_attributes>lt=-</panel_attributes>
+  <additional_attributes>250;45;10;10</additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>1030</x><y>450</y><w>260</w><h>140</h></coordinates>
+  <panel_attributes>lt=-</panel_attributes>
+  <additional_attributes>250;10;10;130</additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>1030</x><y>450</y><w>260</w><h>285</h></coordinates>
+  <panel_attributes>lt=-</panel_attributes>
+  <additional_attributes>250;10;10;275</additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>180</x><y>725</y><w>260</w><h>20</h></coordinates>
+  <panel_attributes>lt=-</panel_attributes>
+  <additional_attributes>10;10;250;10</additional_attributes>
+</element>
+<element>
+  <id>Relation</id>
+  <coordinates><x>890</x><y>450</y><w>20</w><h>105</h></coordinates>
+  <panel_attributes>lt=.&gt;
+«include»</panel_attributes>
+  <additional_attributes>10;10;10;95</additional_attributes>
+</element>
+</diagram>

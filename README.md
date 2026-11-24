@@ -7,6 +7,10 @@
 - Zur Auswahl: Dateien im Ordner sim03/
 > Lösungen gibt es kurz vor 13:00 Uhr im Ordner sim03/
 
+- Aufgaben nach 13:30 Uhr
+    - Zur Auswahl: Dateien im Ordner sim04/
+> Lösungen gibt es um 16:00 Uhr im Ordner sim04/
+
 ## 23.11
 - Berufsbildung und Arbeitsrecht
 - Soziale Sicherung und Sozialversicherung

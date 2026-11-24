@@ -32,7 +32,7 @@ public class B14_records {
         Tier tom = new Tier("Tom", 3);
         boolean result = listTiere.contains(tom); // Nicht gefunden, da die Klasse Tier die equals-Methode nicht überschreibt
 
-        System.out.println("Tier Tom gefunden? result: " + result);
+        System.out.println("Tier Tom gefunden? result: " + result); // false
         
         List<Animal> listAnimals = createListAnimals();
         Animal jerry = new Animal("Jerry", 5);
