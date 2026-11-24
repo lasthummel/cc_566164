@@ -14,7 +14,7 @@ public class B12_Queue {
         queue.add("di");
         queue.add("mi");
 
-        komponenteDieMitSchlangeArbeitet(queue);
+        komponenteDieMitSchlangeArbeitet(queue); // aus FIFO kommen die Elemente in der Reihenfolge: mo, di, mi
     }
 
     static void komponenteDieMitSchlangeArbeitet(Queue<String> queue) {
