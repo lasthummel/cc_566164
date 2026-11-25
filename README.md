@@ -1,5 +1,14 @@
 # Vorbereitung schriftliche Prüfung Teil 2
 
+
+## 25.11
+
+**Viel Erfolg in der Prüfung!**  
+
+- Zur Auswahl: Dateien im Ordner sim05/
+> Lösungen gibt es kurz vor 13:00 Uhr im Ordner sim05/
+
+
 ## 24.11
 - Beispiele im Java-Projekt 'demo' im Ordner 'demo/src/main/javaexam/'
 
